@@ -11,9 +11,10 @@ Vagrant.configure("2") do |config|
 
   config.vm.network :forwarded_port, guest: 3000, host: 3000
 
-  config.vm.provision :docker, images: ["postgres:10"] do |d|
+  config.vm.provision :docker, images: ["postgres:10", "redis:4"] do |d|
     d.run "postgres",
       args: "-e POSTGRES_USER=prospero -e POSTGRES_PASSWORD=prospero -p 5432:5432"
+    d.run "redis", args: "-p 6379:6379"
   end
 
   config.vm.provision :shell, privileged: true,  path: "scripts/install-prerequisites.sh"
