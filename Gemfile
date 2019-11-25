@@ -5,18 +5,20 @@ ruby '2.6.5'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails',                   '~> 6.0.0'
+# Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
+gem 'jbuilder',                '~> 2.7'
 # Use PostgreSQL as the database for Active Record
 gem 'pg',                      '~> 1.0'
 # Use Puma as the app server
 gem 'puma',                    '~> 4.1'
 # Use SCSS for stylesheets
 gem 'sass-rails',              '>= 6'
-# Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
-gem 'webpacker',               '~> 4.0'
+# Async jobs processing
+gem 'sidekiq',                 '~> 6.0'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks',              '~> 5'
-# Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'jbuilder',                '~> 2.7'
+# Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
+gem 'webpacker',               '~> 4.0'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap',                '>= 1.4.2', require: false
