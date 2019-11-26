@@ -20,7 +20,7 @@ Vagrant.configure("2") do |config|
   config.vm.provision :shell, privileged: true,  path: "scripts/install-prerequisites.sh"
   config.vm.provision :shell, privileged: false, path: "scripts/install-ruby.sh"
   config.vm.provision :shell, privileged: false, path: "scripts/setup-profile.sh"
-  config.vm.provision :shell, privileged: false, path: "scripts/install-libraries.sh"
+  config.vm.provision :shell, privileged: false, path: "scripts/install-dependencies.sh"
   config.vm.provision :shell, privileged: false, path: "scripts/init-db.sh"
 
   config.vm.provider :virtualbox do |vb, override|
