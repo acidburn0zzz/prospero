@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
 
-ln -nsf /srv/prospero ~/prospero
-echo "cd /srv/prospero" >> ~/.profile
+if [ ! -f ~/prospero ]; then
+  ln -nsf /srv/prospero ~/prospero
+  echo "cd /srv/prospero" >> ~/.profile
+fi

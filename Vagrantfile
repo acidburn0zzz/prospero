@@ -9,7 +9,7 @@ Vagrant.configure("2") do |config|
   config.vm.synced_folder ".", "/vagrant", disabled: true
   config.vm.synced_folder ".", "/srv/prospero"
 
-  config.vm.network :forwarded_port, guest: 3000, host: 3000
+  config.vm.network :forwarded_port, guest: 5000, host: 3000
 
   config.vm.provision :docker, images: ["postgres:10", "redis:4"] do |d|
     d.run "postgres",
@@ -20,7 +20,8 @@ Vagrant.configure("2") do |config|
   config.vm.provision :shell, privileged: true,  path: "scripts/install-prerequisites.sh"
   config.vm.provision :shell, privileged: false, path: "scripts/install-ruby.sh"
   config.vm.provision :shell, privileged: false, path: "scripts/setup-profile.sh"
-  config.vm.provision :shell, privileged: false, path: "scripts/install-libraries.sh"
+  config.vm.provision :shell, privileged: false, path: "scripts/install-dependencies.sh"
+  config.vm.provision :shell, privileged: false, path: "scripts/install-foreman.sh"
   config.vm.provision :shell, privileged: false, path: "scripts/init-db.sh"
 
   config.vm.provider :virtualbox do |vb, override|
