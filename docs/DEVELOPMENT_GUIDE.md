@@ -2,22 +2,22 @@
 
 #### 0. Pre-requisites
 
+- Have internet connection during the entire process
 - Install [Git](https://git-scm.com/downloads)
 - Install [Vagrant](https://www.vagrantup.com/downloads.html)
 - Install [VirtualBox](https://www.virtualbox.org/wiki/Downloads)
-- Have internet connection during the entire process
 
 #### 1. Checkout source code
 
 ```sh
-~$ git clone https://framagit.org/lobster/prospero.git
+git clone https://framagit.org/lobster/prospero.git
 ```
 
 #### 2. Start the development environment
 
 ```sh
-~$ cd prospero
-~/prospero$ vagrant up
+cd prospero
+vagrant up
 ```
 
 This command does the following:
@@ -30,30 +30,60 @@ This command does the following:
 
 The first time it may take a while.
 
+In case of errors, you can re-run the scripts by running:
+
+```sh
+vagrant provision
+```
+
 #### 3. Connect to the development environment
 
 Once the development environment has started, connect to it with SSH:
 
 ```sh
-~/prospero$ vagrant ssh
+vagrant ssh
 ```
 
-You should see output that starts like this:
+You should see output that looks like this:
 
 ```
 Welcome to Ubuntu 18.04.3 LTS (GNU/Linux 4.15.0-70-generic x86_64)
+.
+.
+.
+vagrant@ubuntu-bionic:/srv/prospero$
 ```
 
 #### 4. Run tests
 
 ```sh
-vagrant@ubuntu-bionic:/srv/prospero$ rails test
+rails test
 ```
 
 #### 5. Run Prospéro
 
+Run Web and Worker processes of Prospéro as defined in Procfile.
 ```sh
-vagrant@ubuntu-bionic:/srv/prospero$ foreman start
+foreman start
 ```
 
 Open your browser at `http://localhost:3000`
+
+You should see on browser the "Yay! You’re on Rails!" like this image: ![Yay! You’re on Rails!](rails-online.png)
+
+#### 6. Stop Prospéro
+
+```sh
+Use Ctrl-C to stop
+```
+
+You should see something like this:
+```
+08:32:42 web.1    | exited with code 0
+08:32:44 worker.1 | exited with code 0
+```
+
+To quit the development environment run:
+```sh
+exit
+```
