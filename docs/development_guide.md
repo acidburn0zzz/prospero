@@ -70,7 +70,7 @@ vagrant@ubuntu-bionic:/srv/prospero$
 #### 4. Run tests
 
 ```sh
-rails test
+rspec
 ```
 
 #### 5. Run Prospéro

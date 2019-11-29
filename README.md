@@ -1,3 +1,6 @@
+[![build status](https://framagit.org/lobster/prospero/badges/develop/build.svg)](https://framagit.org/lobster/prospero/commits/develop)
+[![coverage report](https://framagit.org/lobster/prospero/badges/develop/coverage.svg)](https://lobster.frama.io/prospero/coverage)
+
 # Prospéro
 
 ## Contributing
