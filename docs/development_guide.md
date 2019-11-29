@@ -3,14 +3,21 @@
 #### 0. Pre-requisites
 
 - Have internet connection during the entire process
+- Have a [Framagit](https://framagit.org/) accout
+- Enable [Two-Factor Authentication](https://framagit.org/profile/two_factor_auth) to your account
+- Have a [Personal Access Token](https://framagit.org/profile/personal_access_tokens) with scopes **api**, **read_repository**, and **write_repository**
 - Install [Git](https://git-scm.com/downloads)
 - Install the latest version of [Vagrant](https://www.vagrantup.com/downloads.html)
 - Install the latest version of [VirtualBox](https://www.virtualbox.org/wiki/Downloads)
 
 #### 1. Checkout source code
 
+- Replace `<framagit_user>` with your Framagit username in the following command
+- Replace `<framagit_access_token>` with your Framagit access token in the following command
+
 ```sh
-git clone https://framagit.org/lobster/prospero.git
+git clone https://<framagit_user>:<framagit_access_token>@framagit.org/lobster/prospero.git
+# example: git clone https://lobster:usaZay21sss8M6xrCD5g@framagit.org/lobster/prospero.git
 ```
 
 #### 2. Start the development environment
@@ -24,8 +31,6 @@ You should see output that looks like this in your terminal:
 
 ```
 Bringing machine 'default' up with 'virtualbox' provider...
-==> default: Box 'ubuntu/bionic64' could not be found. Attempting to find and install...
-    default: Box Provider: virtualbox
 .
 .
 .
@@ -39,7 +44,7 @@ This command does the following:
 - installs system requirements
 - runs and configures external services
 - installs Prospéro dependencies
-- creates and initialize database
+- creates and initializes Prospéro database
 
 The first time it may take a while.
 
@@ -69,13 +74,20 @@ vagrant@ubuntu-bionic:/srv/prospero$
 
 #### 4. Run tests
 
+_From the development environment at `/srv/prospero`_
+
+Run automate tests with [RSpec](https://rspec.info/).
+
 ```sh
 rspec
 ```
 
-#### 5. Run Prospéro
+#### 5. Launch Prospéro
 
-Run Web and Worker processes of Prospéro using [Foreman](https://ddollar.github.io/foreman/).
+_From the development environment at `/srv/prospero`_
+
+Start Prospéro processes using [Foreman](https://ddollar.github.io/foreman/).
+
 ```sh
 foreman start
 ```
@@ -101,7 +113,7 @@ You should see output that looks like this in your terminal:
 09:42:58 worker.1 | 2019-11-29T09:42:58.685Z pid=25761 tid=gocxv22tt INFO: Booting Sidekiq 6.0.3 with redis options {:id=>"Sidekiq-server-PID-25761", :url=>nil}
 ```
 
-Open your browser at `http://localhost:3000`
+Open your browser at http://localhost:5000
 
 You should see on browser the "Yay! You’re on Rails!" like this image: ![Yay! You’re on Rails!](rails-online.png)
 
