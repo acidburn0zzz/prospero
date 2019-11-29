@@ -9,7 +9,7 @@ Vagrant.configure("2") do |config|
   config.vm.synced_folder ".", "/vagrant", disabled: true
   config.vm.synced_folder ".", "/srv/prospero", SharedFoldersEnableSymlinksCreate: false
 
-  config.vm.network :forwarded_port, guest: 5000, host: 3000
+  config.vm.network :forwarded_port, guest: 5000, host: 5000
 
   config.vm.provision :docker, images: ["postgres:10", "redis:4"] do |d|
     d.run "postgres",

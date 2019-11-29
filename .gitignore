@@ -36,3 +36,6 @@ yarn-debug.log*
 .vagrant/
 
 *.log
+
+# Ignore code coverage reportss
+coverage/
