@@ -2,4 +2,4 @@
 
 source ~/.rvm/scripts/rvm
 cd /srv/prospero
-rake db:create db:migrate db:seed db:test:prepare
+LOG_LEVEL=warn rake db:create db:migrate db:seed db:test:prepare
