@@ -5,7 +5,7 @@
 
 ## Contributing
 
-See the [development guide](https://framagit.org/lobster/prospero/blob/develop/docs/development_guide.md).
+See the [development guide](docs/development_guide.md).
 
 ## License
 

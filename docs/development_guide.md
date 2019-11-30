@@ -115,7 +115,9 @@ You should see output that looks like this in your terminal:
 
 Open your browser at http://localhost:5000
 
-You should see on browser the "Yay! You’re on Rails!" like this image: ![Yay! You’re on Rails!](rails-online.png)
+You should land on Prospéro home page:
+
+![Prospéro home](prospero-home.png)
 
 #### 6. Stop Prospéro
 
