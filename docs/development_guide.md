@@ -5,13 +5,19 @@
 - Have internet connection during the entire process
 - Have a [Framagit](https://framagit.org/) accout
 - Enable [Two-Factor Authentication](https://framagit.org/profile/two_factor_auth) to your account
-- Have a [Personal Access Token](https://framagit.org/profile/personal_access_tokens) with scopes **api**, **read_repository**, and **write_repository**
 - Install [Git](https://git-scm.com/downloads)
 - Install the latest version of [Vagrant](https://www.vagrantup.com/downloads.html)
 - Install the latest version of [VirtualBox](https://www.virtualbox.org/wiki/Downloads)
 
-#### 1. Checkout source code
+#### 1. Install [Vagrant file system notification forwarder plugin](https://github.com/mhallin/vagrant-notify-forwarder)
 
+```sh
+vagrant plugin install vagrant-notify-forwarder
+```
+
+#### 2. Checkout source code
+
+- Create a [Personal Access Token](https://framagit.org/profile/personal_access_tokens) with scopes **api**, **read_repository**, and **write_repository**
 - Replace `<framagit_user>` with your Framagit username in the following command
 - Replace `<framagit_access_token>` with your Framagit access token in the following command
 
@@ -20,7 +26,7 @@ git clone https://<framagit_user>:<framagit_access_token>@framagit.org/lobster/p
 # example: git clone https://lobster:usaZay21sss8M6xrCD5g@framagit.org/lobster/prospero.git
 ```
 
-#### 2. Start the development environment
+#### 3. Start the development environment
 
 ```sh
 cd prospero
@@ -54,7 +60,7 @@ In case of errors, you can re-run the scripts by running:
 vagrant provision
 ```
 
-#### 3. Connect to the development environment
+#### 4. Connect to the development environment
 
 Once the development environment has started, connect to it with SSH:
 
@@ -72,7 +78,7 @@ Welcome to Ubuntu 18.04.3 LTS (GNU/Linux 4.15.0-70-generic x86_64)
 vagrant@ubuntu-bionic:/srv/prospero$
 ```
 
-#### 4. Run tests
+#### 5. Run tests
 
 _From the development environment at `/srv/prospero`_
 
@@ -82,7 +88,7 @@ Run automate tests with [RSpec](https://rspec.info/).
 rspec
 ```
 
-#### 5. Launch Prospéro
+#### 6. Launch Prospéro
 
 _From the development environment at `/srv/prospero`_
 
@@ -115,9 +121,11 @@ You should see output that looks like this in your terminal:
 
 Open your browser at http://localhost:5000
 
-You should see on browser the "Yay! You’re on Rails!" like this image: ![Yay! You’re on Rails!](rails-online.png)
+You should land on Prospéro home page:
 
-#### 6. Stop Prospéro
+![Prospéro home](prospero-home.png)
+
+#### 7. Stop Prospéro
 
 ```sh
 Use Ctrl-C to stop

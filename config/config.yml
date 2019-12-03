@@ -1,0 +1,5 @@
+default: &default
+  log_level: <%= ENV['LOG_LEVEL'] %>
+
+development:
+  <<: *default

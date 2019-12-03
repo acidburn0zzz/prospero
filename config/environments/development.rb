@@ -57,5 +57,14 @@ Rails.application.configure do
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 
+  # Use Sidekiw as Job runner
   config.active_job.queue_adapter = :sidekiq
+
+  # Redirects logs to stdout in development
+  config.logger = ActiveSupport::TaggedLogging.new(ActiveSupport::Logger.new(STDOUT))
+
+  # Configure log level for config.yml
+  if APP_CONFIG['log_level'].present?
+    config.log_level = APP_CONFIG['log_level']
+  end
 end

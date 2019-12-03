@@ -12,6 +12,9 @@ require 'active_job/railtie'
 require 'rails/test_unit/railtie'
 require 'sprockets/railtie'
 
+# Load application configuration
+APP_CONFIG = YAML.load(ERB.new(File.new("#{File.dirname(__FILE__)}/config.yml").read).result)[Rails.env]
+
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
