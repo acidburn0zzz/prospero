@@ -22,6 +22,7 @@ Vagrant.configure("2") do |config|
   config.vm.provision :shell, privileged: false, path: "scripts/setup-profile.sh"
   config.vm.provision :shell, privileged: false, path: "scripts/install-dependencies.sh"
   config.vm.provision :shell, privileged: false, path: "scripts/install-foreman.sh"
+  config.vm.provision :shell, privileged: false, path: "scripts/install-rubocop.sh"
   config.vm.provision :shell, privileged: false, path: "scripts/init-db.sh"
 
   config.vm.provider :virtualbox do |vb, override|

@@ -78,7 +78,17 @@ Welcome to Ubuntu 18.04.3 LTS (GNU/Linux 4.15.0-70-generic x86_64)
 vagrant@ubuntu-bionic:/srv/prospero$
 ```
 
-#### 5. Run tests
+#### 5. Check code-style
+
+_From the development environment at `/srv/prospero`_
+
+Run static code analyzis with [Rubocop](https://www.rubocop.org)
+
+```sh
+rubocop
+```
+
+#### 6. Run tests
 
 _From the development environment at `/srv/prospero`_
 
@@ -88,7 +98,7 @@ Run automate tests with [RSpec](https://rspec.info/).
 rspec
 ```
 
-#### 6. Launch Prospéro
+#### 7. Launch Prospéro
 
 _From the development environment at `/srv/prospero`_
 
@@ -125,7 +135,7 @@ You should land on Prospéro home page:
 
 ![Prospéro home](prospero-home.png)
 
-#### 7. Stop Prospéro
+#### 8. Stop Prospéro
 
 ```sh
 Use Ctrl-C to stop
