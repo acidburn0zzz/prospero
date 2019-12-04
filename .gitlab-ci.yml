@@ -10,7 +10,7 @@ checkstyle:
     # Install system requirements
     - apk add g++ make
     # Install Rubocop
-    - gem install rubocop:0.77.0
+    - gem install rubocop -v '~> 0.77.0'
   script:
     - rubocop
 
