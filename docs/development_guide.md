@@ -2,7 +2,7 @@
 
 #### 0. Pre-requisites
 
-- Have internet connection during the entire process
+- Have stable internet connection during the entire process
 - Have a [Framagit](https://framagit.org/) accout
 - Enable [Two-Factor Authentication](https://framagit.org/profile/two_factor_auth) to your account
 - Install [Git](https://git-scm.com/downloads)
