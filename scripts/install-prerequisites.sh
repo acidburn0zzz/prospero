@@ -13,7 +13,9 @@ curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
 apt-get install --yes nodejs
 
 # Install libpq-dev
+echo "Installing libpq-dev..."
 apt-get install --yes libpq-dev
 
 # Cleanup
+echo "Cleaning up..."
 apt-get --yes autoremove
