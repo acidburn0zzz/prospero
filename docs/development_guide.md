@@ -23,10 +23,17 @@ vagrant plugin install vagrant-notify-forwarder
 
 ```sh
 git clone https://<framagit_user>:<framagit_access_token>@framagit.org/lobster/prospero.git
-# example: git clone https://lobster:usaZay21sss8M6xrCD5g@framagit.org/lobster/prospero.git
+```
+
+_Example_
+
+```sh
+git clone https://lobster:usaZay21sss8M6xrCD5g@framagit.org/lobster/prospero.git
 ```
 
 #### 3. Start the development environment
+
+_**on Windows** you must open the command prompt **as administrator**_
 
 ```sh
 cd prospero

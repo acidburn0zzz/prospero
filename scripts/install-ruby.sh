@@ -9,4 +9,5 @@ then
   curl -sSL https://get.rvm.io | bash -s stable
   source ~/.rvm/scripts/rvm
 fi
+echo "Installing Ruby..."
 rvm install ruby-2.6.5
