@@ -18,8 +18,8 @@ vagrant plugin install vagrant-notify-forwarder
 #### 2. Checkout source code
 
 - Create a [Personal Access Token](https://framagit.org/profile/personal_access_tokens) with scopes **api**, **read_repository**, and **write_repository**
-- Replace `<framagit_user>` with your Framagit username in the following command
-- Replace `<framagit_access_token>` with your Framagit access token in the following command
+- Replace `<framagit_user>` with your Framagit username in the following command (e.g. lobster)
+- Replace `<framagit_access_token>` with your Framagit access token in the following command (e.g. usaZay21sss8M6xrCD5g)
 
 ```sh
 git clone https://<framagit_user>:<framagit_access_token>@framagit.org/lobster/prospero.git
