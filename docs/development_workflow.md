@@ -52,18 +52,18 @@ git config --local user.name "Your Name"
 git config --local user.email email@domain.whatever
 ```
 
-_Example_
+_Example:_
 
 ```sh
 git config --local user.name "Lobster"
 git config --local user.email lobster@riseup.net
 ```
 
-_If you may want to set this identity globally to all your Git projects, in this case replace `--local` with **`--global`** in the previous commands._
+_You may want to set this identity globally to all your Git projects, in this case replace `--local` with **`--global`** in the previous commands._
 
 #### 3. Set automatic Pull rebase
 
-_You have already set automatic Pull rebase to your Git configuration, you may skip this step._
+_If you have already set automatic Pull rebase to your Git configuration, you may skip this step._
 
 In order to avoid useless [merge commits](https://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging) everytime you [pull remote branches](https://www.git-scm.com/docs/git-pull), please set automatic [Pull rebase](https://git-scm.com/book/en/v2/Git-Branching-Rebasing).
 
@@ -87,6 +87,20 @@ _Example:_
 git checkout -b dev/accounts-management
 ```
 
+Push your newly created branch to the remote repository.
+
+```sh
+git push --set-upstream origin dev/your-branch-name
+```
+
+_Example:_
+
+```sh
+git push --set-upstream origin dev/accounts-management
+```
+
+_If you don't have internet connection at this moment, you can perform step 5 before creating the branch remotely._
+
 #### 5. Perform your local changes
 
 Edit files, create atomic [commits](https://git-scm.com/docs/git-commit) with explicit and descriptive messages.
@@ -103,19 +117,7 @@ git commit --message "Add license to README"
 git commit --message "Update README"
 ```
 
-#### 6. Push your branch to the remote repository
-
-The first time you push a newly created branch, you need to create it in the remote repository:
-
-```sh
-git push --set-upstream origin dev/your-branch-name
-```
-
-_Example:_
-
-```sh
-git push --set-upstream origin dev/accounts-management
-```
+#### 6. Push your changes to the remote repository
 
 Since your branch have already been created in the remote repository, you can push new local changes by running:
 
@@ -139,7 +141,7 @@ Wait for the pipeline to be executed for your branch, you should see something l
 - Make sure the pipeline has passed
 - Make sure your merge request doesn't decrease the [current code coverage](https://lobster.frama.io/prospero/coverage)
 
-If your merge request respects the previous conditions, edit it and assign it to another team member for reviewing. Othewise, repeat steps 5 and 6 until the merge request respects all required conditions.
+If your merge request respects the previous conditions, edit it and assign it to another team member for reviewing. Othewise, repeat steps 5 and 6 until the merge request satifies all required conditions.
 
 #### 8. Wait for feedback
 
