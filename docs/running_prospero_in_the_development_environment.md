@@ -13,9 +13,9 @@ vagrant plugin install vagrant-notify-forwarder
 
 #### 3. Start the development environment
 
-You must have a stable internet connection during the entire process
+You must have a stable internet connection during the entire process.
 
-_**on Windows** you must open the command prompt **as administrator**_
+_**on Windows** you must open the command prompt **as administrator**._
 
 ```sh
 cd prospero
@@ -127,7 +127,7 @@ exit
 
 Check for code-style offenses with [Rubocop](https://www.rubocop.org)
 
-_From the development environment at `/srv/prospero`:_
+_From the development environment at `/srv/prospero`_
 
 ```sh
 rubocop
@@ -137,7 +137,7 @@ rubocop
 
 Run automate tests with [RSpec](https://rspec.info/).
 
-_From the development environment at `/srv/prospero`:_
+_From the development environment at `/srv/prospero`_
 
 ```sh
 rspec
