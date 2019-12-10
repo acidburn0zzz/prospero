@@ -1,11 +1,7 @@
-# Development Guide
+# Running Prospéro in the development environment
 
 #### 0. Pre-requisites
 
-- Have stable internet connection during the entire process
-- Have a [Framagit](https://framagit.org/) account
-- Enable [Two-Factor Authentication](https://framagit.org/profile/two_factor_auth) to your account
-- Install [Git](https://git-scm.com/downloads)
 - Install the latest version of [Vagrant](https://www.vagrantup.com/downloads.html)
 - Install the latest version of [VirtualBox](https://www.virtualbox.org/wiki/Downloads)
 
@@ -15,23 +11,9 @@
 vagrant plugin install vagrant-notify-forwarder
 ```
 
-#### 2. Checkout source code
-
-- Create a [Personal Access Token](https://framagit.org/profile/personal_access_tokens) with scopes **api**, **read_repository**, and **write_repository**
-- Replace `<framagit_user>` with your Framagit username in the following command (e.g. lobster)
-- Replace `<framagit_access_token>` with your Framagit access token in the following command (e.g. usaZay21sss8M6xrCD5g)
-
-```sh
-git clone https://<framagit_user>:<framagit_access_token>@framagit.org/lobster/prospero.git
-```
-
-_Example_
-
-```sh
-git clone https://lobster:usaZay21sss8M6xrCD5g@framagit.org/lobster/prospero.git
-```
-
 #### 3. Start the development environment
+
+You must have a stable internet connection during the entire process
 
 _**on Windows** you must open the command prompt **as administrator**_
 
@@ -85,27 +67,7 @@ Welcome to Ubuntu 18.04.3 LTS (GNU/Linux 4.15.0-70-generic x86_64)
 vagrant@ubuntu-bionic:/srv/prospero$
 ```
 
-#### 5. Check code-style
-
-_From the development environment at `/srv/prospero`_
-
-Run static code analyzis with [Rubocop](https://www.rubocop.org)
-
-```sh
-rubocop
-```
-
-#### 6. Run tests
-
-_From the development environment at `/srv/prospero`_
-
-Run automate tests with [RSpec](https://rspec.info/).
-
-```sh
-rspec
-```
-
-#### 7. Launch Prospéro
+#### 5. Launch Prospéro
 
 _From the development environment at `/srv/prospero`_
 
@@ -142,7 +104,7 @@ You should land on Prospéro home page:
 
 ![Prospéro home](prospero-home.png)
 
-#### 8. Stop Prospéro
+#### 6. Stop Prospéro
 
 ```sh
 Use Ctrl-C to stop
@@ -158,3 +120,29 @@ To quit the development environment run:
 ```sh
 exit
 ```
+
+#### Other actions
+
+##### Validate code-style
+
+Check for code-style offenses with [Rubocop](https://www.rubocop.org)
+
+_From the development environment at `/srv/prospero`:_
+
+```sh
+rubocop
+```
+
+##### Run tests
+
+Run automate tests with [RSpec](https://rspec.info/).
+
+_From the development environment at `/srv/prospero`:_
+
+```sh
+rspec
+```
+
+## See also
+
+- [Development workflow](development_workflow.md)

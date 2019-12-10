@@ -1,11 +1,17 @@
+[![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-v2.0%20adopted-ff69b4.svg)](CODE_OF_CONDUCT.md)
 [![build status](https://framagit.org/lobster/prospero/badges/develop/build.svg)](https://framagit.org/lobster/prospero/commits/develop)
 [![coverage report](https://framagit.org/lobster/prospero/badges/develop/coverage.svg)](https://lobster.frama.io/prospero/coverage)
+
 
 # Prospéro
 
 ## Contributing
 
-See the [development guide](docs/development_guide.md).
+Before contributing with any line of code, documentation, or whatever, take the time to read carefully
+our **[code of conduct](CODE_OF_CONDUCT.md)**. By participating in the Prospéro project, you are expected to uphold this code.
+Please report unacceptable behavior to lobster@riseup.net.
+
+See the [development workflow](docs/development_workflow.md).
 
 ## License
 
