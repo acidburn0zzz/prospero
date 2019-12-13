@@ -5,6 +5,7 @@
 - Read carefully and accept the [Prospéro code of conduct](../CODE_OF_CONDUCT.md)
 - Have a [Framagit](https://framagit.org/) account
 - Install version **2.0** or later of [Git](https://git-scm.com/downloads)
+- Read our [Git guidelines](git_guidelines.md)
 
 #### 1. Request developer access to the project
 
@@ -105,4 +106,6 @@ _The code review documentation will come soon..._
 When everything is alright, your merge request will be merged. Congratulations!
 
 ## See also
+
+- [Git guidelines](git_guidelines.md)
 - [Running Prospéro in the development environment](running_prospero_in_the_development_environment.md)
