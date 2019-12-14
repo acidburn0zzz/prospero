@@ -8,5 +8,9 @@
 # - GNU Affero General Public License V3
 # - a CeCILL variant affero compliant
 
+# Home page controller
+#
+# Responds to the following routes:
+# - GET / => #index
 class HomeController < ApplicationController
 end
