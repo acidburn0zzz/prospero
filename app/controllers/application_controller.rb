@@ -6,7 +6,7 @@
 #
 # Licensed under
 # - GNU Affero General Public License V3
-# - a CeCILL variant affero compliant
+# - CeCILL Affero compliant
 
 # Base controller class
 #
