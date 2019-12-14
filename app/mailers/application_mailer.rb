@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Base mailer class
 #
 # see https://guides.rubyonrails.org/action_mailer_basics.html

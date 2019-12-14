@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Base asynchronous job class
 #
 # see https://guides.rubyonrails.org/active_job_basics.html

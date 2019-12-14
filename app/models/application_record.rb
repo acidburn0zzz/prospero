@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Base model class
 #
 # see https://guides.rubyonrails.org/active_record_basics.html
