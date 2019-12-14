@@ -15,4 +15,5 @@ See the [development workflow](docs/development_workflow.md).
 
 ## License
 
-[GNU Affero General Public License V3](https://www.gnu.org/licenses/agpl-3.0.en.html)
+- GNU Affero General Public License V3
+- a CeCILL variant affero compliant

@@ -9,6 +9,3 @@ AllCops:
     - 'Rakefile'
     - 'spec/**/*'
     - 'Vagrantfile'
-
-Style/FrozenStringLiteralComment:
-  Enabled: false
