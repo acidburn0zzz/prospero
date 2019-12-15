@@ -4,5 +4,5 @@
 echo "Installing dependencies..."
 source ~/.rvm/scripts/rvm
 cd /srv/prospero
-gem install bundler && bundle install
+gem install bundler:2.0.2 && bundle install
 yarn
