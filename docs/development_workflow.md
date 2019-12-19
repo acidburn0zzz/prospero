@@ -108,4 +108,5 @@ When everything is alright, your merge request will be merged. Congratulations!
 ## See also
 
 - [Git guidelines](git_guidelines.md)
+- [Version control](versioning_control.md)
 - [Running Prospéro in the development environment](running_prospero_in_the_development_environment.md)
