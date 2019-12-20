@@ -1,0 +1,11 @@
+AllCops:
+  Exclude:
+    - 'bin/**/*'
+    - 'config.ru'
+    - 'config/**/*'
+    - 'db/**/*'
+    - 'Gemfile'
+    - 'node_modules/**/*'
+    - 'Rakefile'
+    - 'spec/**/*'
+    - 'Vagrantfile'

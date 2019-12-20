@@ -1,0 +1,59 @@
+stages:
+  - checkstyle
+  - test
+  - deploy
+
+checkstyle:
+  stage: checkstyle
+  image: ruby:2.6.5-alpine
+  before_script:
+    # Install system requirements
+    - apk add g++ make
+    # Install Rubocop
+    - gem install rubocop -v '~> 0.77.0'
+  script:
+    - rubocop
+
+test:
+  stage: test
+  image: ruby:2.6.5-alpine
+  services:
+    - postgres:10
+  variables:
+    COVERAGE: enabled
+    DATABASE_CLEANER_ALLOW_REMOTE_DATABASE_URL: enabled
+    DATABASE_URL: postgres://prospero:prospero@postgres:5432/prospero_test
+    POSTGRES_USER: prospero
+    POSTGRES_PASSWORD: prospero
+    RAILS_ENV: test
+  before_script:
+    # Install system requirements
+    - apk add g++ make postgresql-dev
+    # Install Bundler 2
+    - gem install bundler:2.0.2
+    # Build app
+    - bundle install --with test
+    # Create database
+    - rake db:create db:migrate
+  script:
+    - bundle exec rspec
+  coverage: /\(\d+.\d+\%\) covered/
+  artifacts:
+    paths:
+      - coverage
+  except:
+    - tags
+
+# Publish coverage report
+pages:
+  stage: deploy
+  dependencies:
+    - test
+  script:
+    - mv coverage/ public/
+  artifacts:
+    paths:
+      - public
+    expire_in: 30 days
+  only:
+    - develop
