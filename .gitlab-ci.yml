@@ -1,3 +1,7 @@
+# GitLab CI/CD Pipeline Configuration file.
+#
+# See https://docs.gitlab.com/ee/ci/yaml/
+
 image: ruby:2.6.5-alpine
 
 stages:
