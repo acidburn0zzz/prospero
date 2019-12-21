@@ -53,8 +53,6 @@ test:
   artifacts:
     paths:
       - coverage
-  except:
-    - tags
 
 # Publish coverage report
 pages:
