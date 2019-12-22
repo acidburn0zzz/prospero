@@ -8,9 +8,11 @@
 # - GNU Affero General Public License V3
 # - CeCILL Affero compliant
 
-# Home page controller
-#
-# Responds to the following routes:
-# - GET / => #index
-class HomeController < ApplicationController
+# Home page integration tests
+context 'Home' do
+  before do
+    get '/'
+  end
+
+  it { expect(response).to have_http_status(:ok) }
 end

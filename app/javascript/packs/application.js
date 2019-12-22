@@ -6,7 +6,9 @@
 * Licensed under
 * - GNU Affero General Public License V3
 * - CeCILL Affero compliant
-*
+*/
+
+/**
 * Application main JavaScript pack.
 *
 * See https://github.com/rails/webpacker
