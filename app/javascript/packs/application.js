@@ -14,7 +14,6 @@
 * See https://github.com/rails/webpacker
 */
 
-require("@rails/ujs").start();
 require("turbolinks").start();
 var ReactRailsUJS = require("react_ujs");
 var componentRequireContext = require.context("components", true);
