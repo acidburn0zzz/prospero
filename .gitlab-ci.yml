@@ -40,7 +40,7 @@ test:
     RAILS_ENV: test
   before_script:
     # Install system requirements
-    - apk add g++ make postgresql-dev yarn
+    - apk add g++ make postgresql-dev yarn nodejs
     # Install Bundler 2
     - gem install bundler:2.0.2
     # Build app
