@@ -9,12 +9,12 @@ gem 'rails',                      '~> 6.0.0'
 gem 'devise',                     '~> 4.0'
 # Delivery Devise e-mails asynchronously
 gem 'devise-async',               '~> 1.0'
-# Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'jbuilder',                   '~> 2.7'
 # Use PostgreSQL as the database for Active Record
 gem 'pg',                         '~> 1.0'
 # Use Puma as the app server
 gem 'puma',                       '~> 4.1'
+# JSON views templating
+gem 'rabl',                       '~> 0.14.0'
 # Use SCSS for stylesheets
 gem 'sass-rails',                 '>= 6'
 # Async jobs processing
