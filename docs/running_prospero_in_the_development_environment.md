@@ -23,8 +23,7 @@ Bringing machine 'default' up with 'docker' provider...
 .
 .
 .
-default: Created database 'prospero_development'
-default: Created database 'prospero_test'
+default: Database initialized.
 ```
 
 This command does the following:
