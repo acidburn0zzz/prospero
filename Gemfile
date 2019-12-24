@@ -18,7 +18,7 @@ gem 'puma',                       '~> 4.1'
 # JSON views templating
 gem 'rabl',                       '~> 0.14.0'
 # Use SCSS for stylesheets
-gem 'sass-rails',                 '>= 6'
+gem 'sass-rails',                 '~> 6.0'
 # Async jobs processing
 gem 'sidekiq',                    '~> 6.0'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
@@ -27,7 +27,7 @@ gem 'turbolinks',                 '~> 5'
 gem 'webpacker',                  '~> 4.0'
 
 # Reduces boot times through caching; required in config/boot.rb
-gem 'bootsnap',                   '>= 1.4.2', require: false
+gem 'bootsnap',                   '~> 1.0', require: false
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
