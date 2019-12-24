@@ -35,6 +35,7 @@ Rails.application.routes.draw do
   namespace :api do
     # APIv1 Routes
     namespace :v1, defaults: { format: 'json' } do
+      resource :users, only: [:create, :update, :destroy]
     end
   end
 end
