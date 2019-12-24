@@ -11,10 +11,13 @@ default: &default
       host: <%= ENV['PROSPERO_MAILER_URL_OPTIONS_HOST'] %>
       port: <%= ENV['PROSPERO_MAILER_URL_OPTIONS_PORT'] %>
 
-development:
+development: &development
   <<: *default
   mailer:
     sender: mail@example.net
     url_options:
       host: localhost
       port: 5000
+
+test:
+  <<: *development
