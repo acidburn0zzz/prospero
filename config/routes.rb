@@ -12,5 +12,29 @@
 #
 # See https://guides.rubyonrails.org/routing.html
 Rails.application.routes.draw do
-  root to: "home#index"
+  # See https://guides.rubyonrails.org/routing.html#using-root
+  root to: 'home#index'
+
+  # See https://www.rubydoc.info/github/plataformatec/devise/master/ActionDispatch/Routing/Mapper%3Adevise_for
+  devise_for :users, skip: :all
+
+  get '/user/confirmation', to: 'application#index', as: :user_confirmation
+  get '/password/edit',     to: 'application#index', as: :edit_user_password
+
+  # Error routes
+  match '404', to: 'application#not_found',    via: :all
+  match '500', to: 'application#server_error', via: :all
+
+  # Routes for testing errors
+  if Rails.env.development? || Rails.env.test?
+    match '/error/404', to: 'application#not_found',    via: :all
+    match '/error/500', to: 'application#server_error', via: :all
+  end
+
+  # See https://guides.rubyonrails.org/routing.html#controller-namespaces-and-routing
+  namespace :api do
+    # APIv1 Routes
+    namespace :v1, defaults: { format: 'json' } do
+    end
+  end
 end
