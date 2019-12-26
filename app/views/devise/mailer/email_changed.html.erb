@@ -1,0 +1,15 @@
+<% translate('devise.mailer.email_changed.body').each do |line| %>
+  <p><%= line %></p>
+<% end %>
+
+<% if @resource.try(:unconfirmed_email?) %>
+  <p>
+    <%= translate('devise.mailer.email_changed.unconfirmed_message',
+                  unconfirmed_email: "<strong>#{@resource.unconfirmed_email}</strong>").html_safe %>
+  </p>
+<% else %>
+  <p>
+    <%= translate('devise.mailer.email_changed.confirmed_message',
+                  email: "<strong>#{@resource.email}</strong>").html_safe %>
+  </p>
+<% end %>
