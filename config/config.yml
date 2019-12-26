@@ -1,5 +1,5 @@
 default: &default
-  log_level: <%= ENV['LOG_LEVEL'] %>
+  log_level: <%= ENV['PROSPERO_LOG_LEVEL'] %>
 
 development:
   <<: *default
