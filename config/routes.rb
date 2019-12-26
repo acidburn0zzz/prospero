@@ -39,6 +39,7 @@ Rails.application.routes.draw do
       resource :users, only: [:create, :update, :destroy]
       namespace :users do
         resource :confirmations, only: [:create, :update]
+        resource :passwords,     only: [:create, :update]
       end
     end
   end
