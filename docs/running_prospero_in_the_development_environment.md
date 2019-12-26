@@ -3,15 +3,9 @@
 #### 0. Pre-requisites
 
 - Install the latest version of [Vagrant](https://www.vagrantup.com/downloads.html)
-- Install the latest version of [VirtualBox](https://www.virtualbox.org/wiki/Downloads)
+- Install the latest version of [Docker](https://docs.docker.com/install/)
 
-#### 1. Install [Vagrant file system notification forwarder plugin](https://github.com/mhallin/vagrant-notify-forwarder)
-
-```sh
-vagrant plugin install vagrant-notify-forwarder
-```
-
-#### 3. Start the development environment
+#### 1. Start the development environment
 
 You must have a stable internet connection during the entire process.
 
@@ -25,7 +19,7 @@ vagrant up
 You should see output that looks like this in your terminal:
 
 ```
-Bringing machine 'default' up with 'virtualbox' provider...
+Bringing machine 'default' up with 'docker' provider...
 .
 .
 .
@@ -43,13 +37,13 @@ This command does the following:
 
 The first time it may take a while.
 
-In case of errors, you can re-run the scripts by running:
+If it is not the first time, you need to update all dependencies by running:
 
 ```sh
 vagrant provision
 ```
 
-#### 4. Connect to the development environment
+#### 2. Connect to the development environment
 
 Once the development environment has started, connect to it with SSH:
 
@@ -64,10 +58,10 @@ Welcome to Ubuntu 18.04.3 LTS (GNU/Linux 4.15.0-70-generic x86_64)
 .
 .
 .
-vagrant@ubuntu-bionic:/srv/prospero$
+vagrant@4b01633b6ac8:/srv/prospero
 ```
 
-#### 5. Launch Prospéro
+#### 3. Launch Prospéro
 
 _From the development environment at `/srv/prospero`_
 
@@ -104,7 +98,7 @@ You should land on Prospéro home page:
 
 ![Prospéro home](prospero-home.png)
 
-#### 6. Stop Prospéro
+#### 4. Stop Prospéro
 
 ```sh
 Use Ctrl-C to stop

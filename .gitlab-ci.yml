@@ -79,10 +79,10 @@ synchronize-main-branches:
   stage: deploy
   before_script:
     - apk add bash curl jq
-    - merged_branch=$(scripts/print-merge-source.sh $CI_COMMIT_TITLE)
+    - merged_branch=$(tools/ci_cd/print-merge-source.sh $CI_COMMIT_TITLE)
     - if [ "$merged_branch" == "develop" ]; then target=hotfix; else target=develop; fi
   script: >
-    scripts/create-merge-request.sh \
+    tools/ci_cd/create-merge-request.sh \
       --gitlab-url $GITLAB_URL \
       --access-token $ACCESS_TOKEN \
       --project-name $CI_PROJECT_NAME \

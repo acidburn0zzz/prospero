@@ -8,7 +8,13 @@
 # - GNU Affero General Public License V3
 # - CeCILL Affero compliant
 
-echo "Installing Rubocop..."
+# Initialize database schema
+echo "Initializing database schema..."
 source ~/.rvm/scripts/rvm
 cd /srv/prospero
-gem install rubocop -v '~> 0.77.0'
+
+PROSPERO_LOG_LEVEL=warn rake db:create db:migrate db:seed db:test:prepare
+if [ $? -eq 0 ]
+then
+  echo "Database initialized."
+fi
