@@ -12,6 +12,6 @@
 #
 # see https://guides.rubyonrails.org/action_mailer_basics.html
 class ApplicationMailer < ActionMailer::Base
-  default from: 'from@example.com'
+  default from: APP_CONFIG['mailer']['sender']
   layout 'mailer'
 end

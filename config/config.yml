@@ -1,5 +1,20 @@
 default: &default
   log_level: <%= ENV['PROSPERO_LOG_LEVEL'] %>
+  mailer:
+    sender: <%= ENV['PROSPERO_MAILER_SENDER'] %>
+    smtp:
+      address:   <%= ENV['PROSPERO_MAILER_SMTP_ADDRESS'] %>
+      port:      <%= ENV['PROSPERO_MAILER_SMTP_PORT'] %>
+      user_name: <%= ENV['PROSPERO_MAILER_SMTP_USERNAME'] %>
+      password:  <%= ENV['PROSPERO_MAILER_SMTP_PASSWORD'] %>
+    url_options:
+      host: <%= ENV['PROSPERO_MAILER_URL_OPTIONS_HOST'] %>
+      port: <%= ENV['PROSPERO_MAILER_URL_OPTIONS_PORT'] %>
 
 development:
   <<: *default
+  mailer:
+    sender: mail@example.net
+    url_options:
+      host: localhost
+      port: 5000
