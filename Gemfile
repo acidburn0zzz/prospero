@@ -5,6 +5,10 @@ ruby '2.6.5'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails',                   '~> 6.0.0'
+# Authentication library
+gem 'devise',                  '~> 4.0'
+# Delivery Devise e-mails asynchronously
+gem 'devise-async',            '~> 1.0'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder',                '~> 2.7'
 # Use PostgreSQL as the database for Active Record
