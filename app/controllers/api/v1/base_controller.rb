@@ -39,6 +39,8 @@ module Api
                   with: :record_invalid
       rescue_from ActiveRecord::RecordNotFound,
                   with: :not_found
+      rescue_from ActionController::InvalidAuthenticityToken,
+                  with: :invalid_authenticity_token
 
       respond_to :json
 
@@ -52,6 +54,11 @@ module Api
       def record_invalid(exception)
         @error = exception.record.errors
         render :error, status: :bad_request
+      end
+
+      def invalid_authenticity_token
+        @error = translate('errors.messages.invalid_authenticity_token')
+        render :error, status: :forbidden
       end
     end
   end

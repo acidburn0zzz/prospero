@@ -64,6 +64,8 @@ en:
         needs to be confirmed within %{period}, please request a new one
       # Trying to reset the password but the token expired
       expired: has expired, please request a new one
+      # Invalid CSRF authenticity token https://en.wikipedia.org/wiki/Cross-site_request_forgery
+      invalid_authenticity_token: Can't verify CSRF token authenticity
       # HTTP status 404 message https://en.wikipedia.org/wiki/List_of_HTTP_status_codes#404
       not_found: Not found
       # Password missmatch trying to delete account
