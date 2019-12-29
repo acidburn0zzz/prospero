@@ -68,6 +68,8 @@ en:
       invalid_authenticity_token: Can't verify CSRF token authenticity
       # HTTP status 404 message https://en.wikipedia.org/wiki/List_of_HTTP_status_codes#404
       not_found: Not found
+      # Missing required parameter
+      param_missing: "Parameter is missing or the value is empty: %{param}"
       # Password missmatch trying to delete account
       password_missmatch: Invalid password
       # HTTP status 500 message https://en.wikipedia.org/wiki/List_of_HTTP_status_codes#500

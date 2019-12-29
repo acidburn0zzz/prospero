@@ -41,6 +41,8 @@ module Api
                   with: :not_found
       rescue_from ActionController::InvalidAuthenticityToken,
                   with: :invalid_authenticity_token
+      rescue_from ActionController::ParameterMissing,
+                  with: :parameter_missing
 
       respond_to :json
 
@@ -59,6 +61,12 @@ module Api
       def invalid_authenticity_token
         @error = translate('errors.messages.invalid_authenticity_token')
         render :error, status: :forbidden
+      end
+
+      def parameter_missing(exception)
+        @error = translate('errors.messages.param_missing',
+                           param: exception.param)
+        render :error, status: :bad_request
       end
     end
   end
