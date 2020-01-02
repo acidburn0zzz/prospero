@@ -65,6 +65,16 @@ describe 'Passwords recovery tests' do
       expect(user.reload.valid_password?(given_password)).to be(true)
     end
 
+    context 'when given token is missing' do
+      let(:given_token) { '' }
+
+      it { expect(response).to have_http_status(:bad_request) }
+      it 'is expected to respond with error message' do
+        expect(json(response.body)['error']).to eq(
+          translate('errors.messages.param_missing', param: 'token')
+        )
+      end
+    end
     context 'when token is invalid' do
       let(:given_token) { random_token }
 

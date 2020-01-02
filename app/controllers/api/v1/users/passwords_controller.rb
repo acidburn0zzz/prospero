@@ -52,7 +52,7 @@ module Api
         def update
           @resource = User.reset_password_by_token(
             user_params.merge(
-              reset_password_token: params[:token],
+              reset_password_token: params.require(:token),
               password_confirmation: user_params[:password]
             )
           )

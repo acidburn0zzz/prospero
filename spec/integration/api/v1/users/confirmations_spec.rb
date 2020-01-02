@@ -31,6 +31,16 @@ describe 'Users confirmations tests' do
       expect(user.reload.confirmed_at).to be_present
     end
 
+    context 'when given token is missing' do
+      let(:given_token) { '' }
+
+      it { expect(response).to have_http_status(:bad_request) }
+      it 'is expected to respond with error message' do
+        expect(json(response.body)['error']).to eq(
+          translate('errors.messages.param_missing', param: 'token')
+        )
+      end
+    end
     context 'when given token doest not exist' do
       let(:given_token) { random_token }
 
