@@ -30,7 +30,7 @@ module Api
       # filter.
       #
       # See https://guides.rubyonrails.org/action_controller_overview.html#filters
-      before_action :authenticate_user!, except: :not_found
+      before_action :authenticate_user!
 
       # See https://guides.rubyonrails.org/action_controller_overview.html#rescue-from
       rescue_from ApplicationError,
