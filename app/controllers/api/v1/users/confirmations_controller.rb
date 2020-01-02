@@ -56,7 +56,7 @@ module Api
         #     }
         #   }
         def update
-          @resource = User.confirm_by_token(params[:token])
+          @resource = User.confirm_by_token(params.require(:token))
           if @resource.errors.present?
             raise ActiveRecord::RecordInvalid, @resource
           end
