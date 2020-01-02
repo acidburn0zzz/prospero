@@ -1,5 +1,13 @@
 #!/usr/bin/env bash
 
+# Prospero
+#
+# You should have received a copy of the license along with this program.
+#
+# Licensed under
+# - GNU Affero General Public License V3
+# - CeCILL Affero compliant
+
 # Install Yarn
 echo "Installing Yarn..."
 curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -

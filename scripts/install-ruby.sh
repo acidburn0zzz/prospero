@@ -1,5 +1,13 @@
 #!/usr/bin/env bash
 
+# Prospero
+#
+# You should have received a copy of the license along with this program.
+#
+# Licensed under
+# - GNU Affero General Public License V3
+# - CeCILL Affero compliant
+
 # Install Ruby 2.6.5 using RVM
 rvm --version > /dev/null 2>&1
 if [ $? -ne 0 ]

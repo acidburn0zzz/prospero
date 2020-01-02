@@ -1,3 +1,17 @@
+# Prospero
+#
+# You should have received a copy of the license along with this program.
+#
+# Licensed under
+# - GNU Affero General Public License V3
+# - CeCILL Affero compliant
+
+# GitLab CI/CD Pipeline Configuration file.
+#
+# See https://docs.gitlab.com/ee/ci/yaml/
+
+image: ruby:2.6.5-alpine
+
 stages:
   - checkstyle
   - test
@@ -5,7 +19,6 @@ stages:
 
 checkstyle:
   stage: checkstyle
-  image: ruby:2.6.5-alpine
   before_script:
     # Install system requirements
     - apk add g++ make
@@ -16,7 +29,6 @@ checkstyle:
 
 test:
   stage: test
-  image: ruby:2.6.5-alpine
   services:
     - postgres:10
   variables:
@@ -41,8 +53,6 @@ test:
   artifacts:
     paths:
       - coverage
-  except:
-    - tags
 
 # Publish coverage report
 pages:
@@ -57,3 +67,33 @@ pages:
     expire_in: 30 days
   only:
     - develop
+
+# If 'develop' has just been merged into to 'master', then create a Merge Request
+# of 'master' into 'hotfix'.
+#
+# If 'hotfix' has just been merged into 'master', then create a Merge Request
+# of 'master' into 'develop'.
+#
+# see docs/versioning_policy.md
+synchronize-main-branches:
+  stage: deploy
+  before_script:
+    - apk add bash curl jq
+    - merged_branch=$(scripts/print-merge-source.sh $CI_COMMIT_TITLE)
+    - if [ "$merged_branch" == "develop" ]; then target=hotfix; else target=develop; fi
+  script: >
+    scripts/create-merge-request.sh \
+      --gitlab-url $GITLAB_URL \
+      --access-token $ACCESS_TOKEN \
+      --project-name $CI_PROJECT_NAME \
+      --project-namespace $CI_PROJECT_NAMESPACE \
+      --source-branch master \
+      --target-branch $target \
+      --assignee-id $AUTOMATE_MERGE_ASSIGNEE_ID
+  only:
+    refs:
+      - master
+    variables:
+      - $GITLAB_URL
+      - $ACCESS_TOKEN
+      - $AUTOMATE_MERGE_ASSIGNEE_ID
