@@ -30,7 +30,7 @@ checkstyle:
 test:
   stage: test
   services:
-    - postgres:10
+    - postgres:12
   variables:
     COVERAGE: enabled
     DATABASE_CLEANER_ALLOW_REMOTE_DATABASE_URL: enabled
