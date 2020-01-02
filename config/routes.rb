@@ -13,7 +13,10 @@
 # See https://guides.rubyonrails.org/routing.html
 Rails.application.routes.draw do
   # See https://guides.rubyonrails.org/routing.html#using-root
-  root to: 'home#index'
+  root to: 'application#index'
+
+  # Route for sample pages
+  get '/sample/:id', to: 'application#index'
 
   # See https://www.rubydoc.info/github/plataformatec/devise/master/ActionDispatch/Routing/Mapper%3Adevise_for
   devise_for :users, skip: :all

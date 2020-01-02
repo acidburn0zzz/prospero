@@ -17,6 +17,8 @@ gem 'pg',                         '~> 1.0'
 gem 'puma',                       '~> 4.1'
 # JSON views templating
 gem 'rabl',                       '~> 0.14.0'
+# React.js integration. See https://reactjs.org/
+gem 'react-rails',                '~> 2.0'
 # Use SCSS for stylesheets
 gem 'sass-rails',                 '~> 6.0'
 # Async jobs processing
