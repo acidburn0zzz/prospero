@@ -8,7 +8,12 @@
 # - GNU Affero General Public License V3
 # - CeCILL Affero compliant
 
-echo "Installing Foreman..."
+# Install prospero dependencies
+echo "Installing dependencies..."
 source ~/.rvm/scripts/rvm
 cd /srv/prospero
+gem install rubocop -v '~> 0.77.0'
 gem install foreman
+gem install bundler:2.0.2
+bundle install
+yarn install

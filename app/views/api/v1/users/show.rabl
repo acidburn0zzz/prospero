@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+# frozen_string_literal: true
 
 # Prospero
 #
@@ -8,7 +8,11 @@
 # - GNU Affero General Public License V3
 # - CeCILL Affero compliant
 
-echo "Installing Rubocop..."
-source ~/.rvm/scripts/rvm
-cd /srv/prospero
-gem install rubocop -v '~> 0.77.0'
+# Show user JSON template
+#
+# See https://github.com/nesquena/rabl#usage
+
+object @resource
+
+attribute :id
+attribute :email

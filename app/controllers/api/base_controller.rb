@@ -8,10 +8,10 @@
 # - GNU Affero General Public License V3
 # - CeCILL Affero compliant
 
-# Base mailer class
-#
-# see https://guides.rubyonrails.org/action_mailer_basics.html
-class ApplicationMailer < ActionMailer::Base
-  default from: APP_CONFIG['mailer']['sender']
-  layout 'mailer'
+module Api
+  # Base API controller class
+  #
+  # This is the superclass of all API controllers.
+  class BaseController < ApplicationController
+  end
 end

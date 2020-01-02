@@ -8,9 +8,13 @@
 # - GNU Affero General Public License V3
 # - CeCILL Affero compliant
 
-# Install prospero dependencies
-echo "Installing dependencies..."
+# Initialize database schema
+echo "Initializing database schema..."
 source ~/.rvm/scripts/rvm
 cd /srv/prospero
-gem install bundler:2.0.2 && bundle install
-yarn
+
+PROSPERO_LOG_LEVEL=warn rake db:create db:migrate db:seed db:test:prepare
+if [ $? -eq 0 ]
+then
+  echo "Database initialized."
+fi

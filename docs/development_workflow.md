@@ -73,6 +73,8 @@ _If you don't have internet connection at this moment or your developer access h
 
 Edit files and create [commits](https://git-scm.com/docs/git-commit) in your local feature branch.
 
+You may need to [run Prospéro in the development environment](running_prospero_in_the_development_environment.md).
+
 #### 6. Push your changes to the remote repository
 
 Since your branch have already been created in the remote repository, you can push new local changes by running:
