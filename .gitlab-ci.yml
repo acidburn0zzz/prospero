@@ -48,6 +48,8 @@ test:
     - yarn install
     # Create database
     - rake db:create db:migrate
+    # Compile JavaScript assets
+    - rails webpacker:compile
   script:
     - bundle exec rspec
   coverage: /\(\d+.\d+\%\) covered/
