@@ -14,7 +14,7 @@ Please report unacceptable behavior to lobster[AT]riseup[DOT]net.
 See our development documentation:
 
 * [Git guidelines](docs/git_guidelines.md)
-* [Development workflow documentation](docs/development_workflow.md)
+* [Development workflow](docs/development_workflow.md)
 * [Running Prospéro in the development environment](running_prospero_in_the_development_environment.md)
 
 ## Version control
