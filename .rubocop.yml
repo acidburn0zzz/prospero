@@ -3,12 +3,16 @@ AllCops:
     - 'bin/**/*'
     - 'config.ru'
     - 'config/**/*'
-    - 'db/**/*'
+    - 'db/schema.rb'
     - 'Gemfile'
     - 'node_modules/**/*'
     - 'Rakefile'
-    - 'Vagrantfile'
 
 Metrics/BlockLength:
   Exclude:
+    - 'db/migrate/*'
     - 'spec/**/*'
+
+Metrics/MethodLength:
+  Exclude:
+    - 'db/migrate/*'

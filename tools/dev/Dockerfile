@@ -1,3 +1,11 @@
+# Prospero
+#
+# You should have received a copy of the license along with this program.
+#
+# Licensed under
+# - GNU Affero General Public License V3
+# - CeCILL Affero compliant
+
 # Inspired from https://github.com/zulip/zulip/blob/5c734f70486daaa2a72a284471d08052c633b1f6/tools/setup/dev-vagrant-docker/Dockerfile
 
 FROM ubuntu:18.04
@@ -19,6 +27,8 @@ RUN apt --yes update
 RUN apt --yes upgrade
 
 RUN apt install --no-install-recommends -y \
+           make \
+           g++ \
            ca-certificates \
            curl \
            locales \
@@ -31,8 +41,18 @@ RUN apt install --no-install-recommends -y \
            nodejs \
            systemd \
            postgresql-12 \
-           postgresql-contrib-12 \
-           redis-server
+           postgresql-contrib-12
+
+RUN curl http://download.redis.io/releases/redis-5.0.7.tar.gz > /tmp/redis-5.0.7.tar.gz \
+    && cd /tmp/ \
+    && tar xzf redis-5.0.7.tar.gz \
+    && cd /tmp/redis-5.0.7 \
+    && make install \
+    && mkdir /etc/redis \
+    && adduser --system --group --no-create-home redis \
+    && mkdir /var/lib/redis \
+    && chown redis:redis /var/lib/redis \
+    && chmod 770 /var/lib/redis
 
 ARG VAGRANT_UID
 
@@ -49,12 +69,6 @@ RUN \
     # docker-systemctl-replacement doesn’t work with template units yet:
     # https://github.com/gdraheim/docker-systemctl-replacement/issues/62
     && ln -ns /lib/systemd/system/postgresql@.service /etc/systemd/system/multi-user.target.wants/postgresql@12-main.service \
-    # redis fails to start with the default configuration if IPv6 is disabled:
-    # https://github.com/antirez/redis/pull/5598
-    && dpkg-divert --add --rename /etc/default/redis-server \
-    && printf 'ULIMIT=65536\nDAEMON_ARGS="/etc/redis/redis.conf --bind 127.0.0.1"\n' > /etc/default/redis-server \
-    && mkdir /etc/systemd/system/redis-server.service.d \
-    && printf '[Service]\nExecStart=\nExecStart=/usr/bin/redis-server /etc/redis/redis.conf --bind 127.0.0.1\n' > /etc/systemd/system/redis-server.service.d/override.conf \
     # Set up the vagrant user and its SSH key (globally public)
     && useradd -ms /bin/bash -u "$VAGRANT_UID" vagrant \
     && mkdir -m 700 ~vagrant/.ssh \
@@ -62,6 +76,14 @@ RUN \
     && chown -R vagrant: ~vagrant/.ssh \
     && echo 'vagrant ALL=(ALL) NOPASSWD:ALL' > /etc/sudoers.d/vagrant
 
+COPY postgres/pgcrypto.control /usr/share/postgresql/12/extension/pgcrypto.control
+
+COPY redis/redis.conf /etc/redis/redis.conf
+COPY redis/redis-server.service /etc/systemd/system/redis-server.service
+RUN systemctl enable redis-server
+
+RUN su vagrant -c "mkdir /home/vagrant/.gnupg/"
+RUN su vagrant -c "echo 'disable-ipv6' > /home/vagrant/.gnupg/dirmngr.conf"
 RUN su vagrant -c "gpg2 --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3 7D2BAF1CF37B13E2069D6956105BD0E739499BDB"
 RUN su vagrant -c "curl -sSL https://get.rvm.io | bash -s stable"
 RUN su vagrant -c "/home/vagrant/.rvm/bin/rvm install ruby-2.6.5"

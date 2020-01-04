@@ -11,7 +11,11 @@ Before contributing with any line of code, documentation, or whatever, take the 
 our **[code of conduct](CODE_OF_CONDUCT.md)**. By participating in the Prospéro project, you are expected to uphold this code.
 Please report unacceptable behavior to lobster[AT]riseup[DOT]net.
 
-See our [development workflow documentation](docs/development_workflow.md).
+See our development documentation:
+
+* [Git guidelines](docs/git_guidelines.md)
+* [Development workflow documentation](docs/development_workflow.md)
+* [Running Prospéro in the development environment](running_prospero_in_the_development_environment.md)
 
 ## Version control
 
