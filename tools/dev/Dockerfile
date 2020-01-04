@@ -72,6 +72,8 @@ COPY redis/redis.conf /etc/redis/redis.conf
 COPY redis/redis-server.service /etc/systemd/system/redis-server.service
 RUN systemctl enable redis-server
 
+RUN su vagrant -c "mkdir /home/vagrant/.gnupg/"
+RUN su vagrant -c "echo 'disable-ipv6' > /home/vagrant/.gnupg/dirmngr.conf"
 RUN su vagrant -c "gpg2 --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3 7D2BAF1CF37B13E2069D6956105BD0E739499BDB"
 RUN su vagrant -c "curl -sSL https://get.rvm.io | bash -s stable"
 RUN su vagrant -c "/home/vagrant/.rvm/bin/rvm install ruby-2.6.5"
