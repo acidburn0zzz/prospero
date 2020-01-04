@@ -1,3 +1,11 @@
+# Prospero
+#
+# You should have received a copy of the license along with this program.
+#
+# Licensed under
+# - GNU Affero General Public License V3
+# - CeCILL Affero compliant
+
 # Inspired from https://github.com/zulip/zulip/blob/5c734f70486daaa2a72a284471d08052c633b1f6/tools/setup/dev-vagrant-docker/Dockerfile
 
 FROM ubuntu:18.04
@@ -67,6 +75,8 @@ RUN \
     && curl -so ~vagrant/.ssh/authorized_keys 'https://raw.githubusercontent.com/hashicorp/vagrant/be7876d83644aa6bdf7f951592fdc681506bcbe6/keys/vagrant.pub' \
     && chown -R vagrant: ~vagrant/.ssh \
     && echo 'vagrant ALL=(ALL) NOPASSWD:ALL' > /etc/sudoers.d/vagrant
+
+COPY postgres/pgcrypto.control /usr/share/postgresql/12/extension/pgcrypto.control
 
 COPY redis/redis.conf /etc/redis/redis.conf
 COPY redis/redis-server.service /etc/systemd/system/redis-server.service
