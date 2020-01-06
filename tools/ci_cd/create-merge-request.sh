@@ -20,7 +20,7 @@
 #   --assignee-id         Merge request's assignee user ID
 #   --gitlab-url          GitLab instance URL
 #   --project-name        GitLab project name (e.g prospero)
-#   --project-namespace   GitLab project namespace (e.g lobster)
+#   --project-namespace   GitLab project namespace (e.g prospero)
 #   --source-branch       Merge request's source branch
 #   --target-branch       Merge request's target branch
 
