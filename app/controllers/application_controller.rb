@@ -10,6 +10,37 @@
 
 # Base controller class
 #
-# see https://guides.rubyonrails.org/action_controller_overview.html
+# This is the superclass of all controllers.
+#
+# See https://guides.rubyonrails.org/action_controller_overview.html
 class ApplicationController < ActionController::Base
+  # HTTP status 404
+  #
+  # Render error response for resources not found.
+  def not_found
+    respond_to do |format|
+      format.html do
+        render :not_found, status: :not_found
+      end
+      format.json do
+        @error = translate('errors.messages.not_found')
+        render :error, status: :not_found
+      end
+    end
+  end
+
+  # HTTP status 500
+  #
+  # Render error response for internal server errors.
+  def server_error
+    respond_to do |format|
+      format.html do
+        render :server_error, status: :server_error
+      end
+      format.json do
+        @error = translate('errors.messages.server_error')
+        render :error, status: :server_error
+      end
+    end
+  end
 end

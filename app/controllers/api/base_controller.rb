@@ -8,9 +8,10 @@
 # - GNU Affero General Public License V3
 # - CeCILL Affero compliant
 
-# Home page controller
-#
-# Responds to the following routes:
-# - GET / => #index
-class HomeController < ApplicationController
+module Api
+  # Base API controller class
+  #
+  # This is the superclass of all API controllers.
+  class BaseController < ApplicationController
+  end
 end
