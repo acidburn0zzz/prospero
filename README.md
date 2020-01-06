@@ -1,6 +1,6 @@
 [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-v2.0%20adopted-ff69b4.svg)](CODE_OF_CONDUCT.md)
-[![build status](https://framagit.org/lobster/prospero/badges/develop/build.svg)](https://framagit.org/lobster/prospero/commits/develop)
-[![coverage report](https://framagit.org/lobster/prospero/badges/develop/coverage.svg)](https://lobster.frama.io/prospero/coverage)
+[![build status](https://framagit.org/prospero/prospero/badges/develop/build.svg)](https://framagit.org/prospero/prospero/commits/develop)
+[![coverage report](https://framagit.org/prospero/prospero/badges/develop/coverage.svg)](https://prospero.frama.io/prospero/coverage)
 
 
 # Prospéro
