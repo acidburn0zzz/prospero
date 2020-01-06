@@ -1,0 +1,8 @@
+<% translate('devise.mailer.confirmation_instructions.body').each do |line| %>
+  <p><%= line %></p>
+<% end %>
+
+<p>
+  <%= link_to translate('devise.mailer.confirmation_instructions.link_label'),
+              confirmation_url(@resource, confirmation_token: @token) %>
+</p>

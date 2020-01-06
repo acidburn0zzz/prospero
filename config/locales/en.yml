@@ -1,33 +1,76 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
+# Prospero
 #
-# To use the locales, use `I18n.t`:
+# You should have received a copy of the license along with this program.
 #
-#     I18n.t 'hello'
+# Licensed under
+# - GNU Affero General Public License V3
+# - CeCILL Affero compliant
+
+# English application messages
 #
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# The following keys must be escaped otherwise they will not be retrieved by
-# the default I18n backend:
-#
-# true, false, on, off, yes, no
-#
-# Instead, surround them with single quotes.
-#
-# en:
-#   'true': 'foo'
-#
-# To learn more, please read the Rails Internationalization guide
-# available at https://guides.rubyonrails.org/i18n.html.
+# See https://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  # Devise messages translations
+  #
+  # See https://github.com/plataformatec/devise/wiki/I18n
+  devise:
+    failure:
+      # Authentication failure
+      invalid: Invalid e-mail or password
+    mailer:
+      # Message to confirm user's email address
+      confirmation_instructions:
+        subject: Confirm your e-mail address
+        body:
+          - Hello,
+          - To get started using Prospéro, click the link below to confirm your
+            e-mail address.
+        link_label: Confirm my e-mail address
+      # Message to reset user's password
+      reset_password_instructions:
+        subject: Reset your Prospéro password
+        body:
+          - Hello,
+          - Someone (hopefully you) has requested a link to change your
+            password. Click the link below to reset your password.
+        link_label: Reset my password
+        disclaimer: If you didn't request this, please ignore this email.
+      # Notification when user's email address has been changed
+      email_changed:
+        subject: Your Prospéro e-mail has been changed
+        body:
+          - Hello,
+        confirmed_message: >
+          We're contacting you to notify that your Prospéro email has been
+          changed to %{email}.
+        unconfirmed_message: >
+          We're contacting you to notify that your Prospéro email is being
+          changed to %{unconfirmed_email}.
+      # Notification when user's password has been changed
+      password_change:
+        subject: Your Prospéro password has been changed
+        body:
+          - Hello,
+          - We're contacting you to notify you that your Prospéro password has
+            been changed.
+  # Error messages translations
+  errors:
+    messages:
+      # Trying to confirm an email address that has already been confirmed
+      already_confirmed: was already confirmed, please try signing in
+      # Trying to confirm an email address but the confirmation token expired
+      confirmation_period_expired: >
+        needs to be confirmed within %{period}, please request a new one
+      # Trying to reset the password but the token expired
+      expired: has expired, please request a new one
+      # Invalid CSRF authenticity token https://en.wikipedia.org/wiki/Cross-site_request_forgery
+      invalid_authenticity_token: Can't verify CSRF token authenticity
+      # HTTP status 404 message https://en.wikipedia.org/wiki/List_of_HTTP_status_codes#404
+      not_found: Not found
+      # Missing required parameter
+      param_missing: "Parameter is missing or the value is empty: %{param}"
+      # Password missmatch trying to delete account
+      password_missmatch: Invalid password
+      # HTTP status 500 message https://en.wikipedia.org/wiki/List_of_HTTP_status_codes#500
+      server_error: Internal server error
