@@ -2,7 +2,6 @@ AllCops:
   Exclude:
     - bin/**/*
     - config.ru
-    - config/**/*
     - db/schema.rb
     - Gemfile
     - node_modules/**/*
@@ -10,6 +9,7 @@ AllCops:
 
 Metrics/BlockLength:
   Exclude:
+    - config/**/*
     - db/migrate/*
     - spec/**/*
 
