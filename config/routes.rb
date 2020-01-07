@@ -38,11 +38,11 @@ Rails.application.routes.draw do
   namespace :api do
     # APIv1 Routes
     namespace :v1, defaults: { format: 'json' } do
-      resource :auth,  only: [:create, :destroy], controller: :auth
-      resource :users, only: [:create, :update, :destroy]
+      resource :auth,  only: %i[create destroy], controller: :auth
+      resource :users, only: %i[create update destroy]
       namespace :users do
-        resource :confirmations, only: [:create, :update]
-        resource :passwords,     only: [:create, :update]
+        resource :confirmations, only: %i[create update]
+        resource :passwords,     only: %i[create update]
       end
     end
   end
