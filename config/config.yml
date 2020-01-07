@@ -11,6 +11,9 @@ default: &default
       host: <%= ENV['PROSPERO_MAILER_URL_OPTIONS_HOST'] %>
       port: <%= ENV['PROSPERO_MAILER_URL_OPTIONS_PORT'] %>
 
+production:
+  <<: *default
+
 development: &development
   <<: *default
   mailer:
