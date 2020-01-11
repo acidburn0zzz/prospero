@@ -28,4 +28,6 @@ class User < ApplicationRecord
     # See https://github.com/plataformatec/devise/wiki/How-To:-Send-devise-emails-in-background-(Resque,-Sidekiq-and-Delayed::Job)#for-devise--211
     :async
   )
+
+  validates_presence_of :full_name
 end

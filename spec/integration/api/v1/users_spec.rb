@@ -14,12 +14,14 @@ describe 'Users tests' do
     let!(:existing_user) { create(:user) }
     let(:given_email) { random_email }
     let(:given_password) { random_password }
+    let(:given_full_name) { random_name }
 
     before do
       post '/api/v1/users', params: {
         user: {
           email: given_email,
-          password: given_password
+          password: given_password,
+          full_name: given_full_name
         }
       }
     end
@@ -27,6 +29,7 @@ describe 'Users tests' do
     it { expect(response).to have_http_status(:ok) }
     it 'is expected to respond with created user' do
       expect(json(response.body)['user']['email']).to eq(given_email)
+      expect(json(response.body)['user']['full_name']).to eq(given_full_name)
     end
     it 'is expected to create a new user' do
       expect(User.count).to eq(2)
@@ -78,6 +81,7 @@ describe 'Users tests' do
     let(:old_email) { random_email }
     let(:given_email) { random_email }
     let(:given_password) { random_password }
+    let(:given_full_name) { random_name }
 
     let!(:another_user) { create(:user) }
 
@@ -86,7 +90,8 @@ describe 'Users tests' do
       put '/api/v1/users', params: {
         user: {
           email: given_email,
-          password: given_password
+          password: given_password,
+          full_name: given_full_name
         }
       }
     end
@@ -95,7 +100,8 @@ describe 'Users tests' do
     it 'is expected to respond with updated user still having old email' do
       expect(json(response.body)['user']).to eq(
         'id' => user.id,
-        'email' => old_email
+        'email' => old_email,
+        'full_name' => given_full_name
       )
     end
     it 'is expected to set unconfirmed_email with new email' do
@@ -155,7 +161,8 @@ describe 'Users tests' do
     it 'is expected to respond with deleted user' do
       expect(json(response.body)['user']).to eq(
         'id' => user.id,
-        'email' => user.email
+        'email' => user.email,
+        'full_name' => user.full_name
       )
     end
     it 'is expected to delete user from database' do

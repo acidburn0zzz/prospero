@@ -7,8 +7,6 @@
 # Licensed under
 # - GNU Affero General Public License V3
 # - CeCILL Affero compliant
-
-# Create users table
 class DeviseCreateUsers < ActiveRecord::Migration[6.0]
   def change
     create_table :users, id: :uuid do |t|
