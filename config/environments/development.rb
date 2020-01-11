@@ -1,5 +1,16 @@
+# frozen_string_literal: true
+
+# Prospero
+#
+# You should have received a copy of the license along with this program.
+#
+# Licensed under
+# - GNU Affero General Public License V3
+# - CeCILL Affero compliant
+
 Rails.application.configure do
-  # Settings specified here will take precedence over those in config/application.rb.
+  # Settings specified here will take precedence over those in
+  # config/application.rb.
 
   # In the development environment your application's code is reloaded on
   # every request. This slows down response time but is perfect for development
@@ -60,10 +71,10 @@ Rails.application.configure do
   config.active_job.queue_adapter = :sidekiq
 
   # Redirects logs to stdout in development
-  config.logger = ActiveSupport::TaggedLogging.new(ActiveSupport::Logger.new(STDOUT))
+  config.logger = ActiveSupport::TaggedLogging.new(
+    ActiveSupport::Logger.new(STDOUT)
+  )
 
   # Configure log level for config.yml
-  if APP_CONFIG['log_level'].present?
-    config.log_level = APP_CONFIG['log_level']
-  end
+  config.log_level = APP_CONFIG['log_level'] if APP_CONFIG['log_level'].present?
 end

@@ -100,3 +100,27 @@ synchronize-main-branches:
       - $GITLAB_URL
       - $ACCESS_TOKEN
       - $AUTOMATE_MERGE_ASSIGNEE_ID
+
+# Trigger job to push Docker image
+#
+# See https://framagit.org/prospero/prospero-docker/blob/master/.gitlab-ci.yml
+publish-docker-image:
+  stage: deploy
+  before_script:
+    - apk add bash curl jq
+  script: >
+    tools/ci_cd/create-pipeline.sh \
+      --gitlab-url $GITLAB_URL \
+      --access-token $ACCESS_TOKEN \
+      --project-name $DOCKER_IMAGE_PROJECT_NAME \
+      --project-namespace $DOCKER_IMAGE_PROJECT_NAMESPACE \
+      --pipeline-ref master \
+      --pipeline-variables "[{ \"key\": \"PROSPERO_VERSION\", \"value\": \"$CI_COMMIT_TAG\" }]"
+  only:
+    refs:
+      - tags
+    variables:
+      - $GITLAB_URL
+      - $ACCESS_TOKEN
+      - $DOCKER_IMAGE_PROJECT_NAME
+      - $DOCKER_IMAGE_PROJECT_NAMESPACE
