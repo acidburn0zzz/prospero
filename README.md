@@ -7,8 +7,9 @@
 
 ## Contributing
 
-Before contributing with any line of code, documentation, or whatever, take the time to read carefully
-our **[code of conduct](CODE_OF_CONDUCT.md)**. By participating in the Prospéro project, you are expected to uphold this code.
+Before contributing with any line of code, documentation, or whatever, take the
+time to read carefully our **[code of conduct](CODE_OF_CONDUCT.md)**. By
+participating in the Prospéro project, you are expected to uphold this code.
 Please report unacceptable behavior to lobster[AT]riseup[DOT]net.
 
 See our development documentation:
