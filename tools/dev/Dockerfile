@@ -76,8 +76,6 @@ RUN \
     && chown -R vagrant: ~vagrant/.ssh \
     && echo 'vagrant ALL=(ALL) NOPASSWD:ALL' > /etc/sudoers.d/vagrant
 
-COPY postgres/pgcrypto.control /usr/share/postgresql/12/extension/pgcrypto.control
-
 COPY redis/redis.conf /etc/redis/redis.conf
 COPY redis/redis-server.service /etc/systemd/system/redis-server.service
 RUN systemctl enable redis-server

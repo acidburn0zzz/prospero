@@ -26,14 +26,16 @@ module Api
       # POST /api/v1/users
       #
       # Parameters:
-      #   user[email]    - New user's e-mail address
-      #   user[password] - New user's password
+      #   user[email]     - New user's e-mail address
+      #   user[full_name] - New user's full name
+      #   user[password]  - New user's password
       #
       # Response: the new user
       #   {
       #     "user": {
       #       "id": "b74ec2d0-ec55-4c6a-91bd-c4c669aa34f5",
-      #       "email": "email@example.net"
+      #       "email": "email@example.net",
+      #       "full_name": "Ulrike Meinhof"
       #     }
       #   }
       def create
@@ -50,14 +52,16 @@ module Api
       # PUT /api/v1/users
       #
       # Parameters:
-      #   user[email]    - New e-mail address
-      #   user[password] - New password
+      #   user[email]     - New e-mail address
+      #   user[full_name] - New full name
+      #   user[password]  - New password
       #
       # Response: the updated user
       #   {
       #     "user": {
       #       "id": "b74ec2d0-ec55-4c6a-91bd-c4c669aa34f5",
-      #       "email": "email@example.net"
+      #       "email": "email@example.net",
+      #       "full_name": "Marielle Franco"
       #     }
       #   }
       def update
@@ -77,7 +81,8 @@ module Api
       #   {
       #     "user": {
       #       "id": "b74ec2d0-ec55-4c6a-91bd-c4c669aa34f5",
-      #       "email": "email@example.net"
+      #       "email": "email@example.net",
+      #       "full_name": "Alexandra David-Neel"
       #     }
       #   }
       def destroy
@@ -95,7 +100,8 @@ module Api
       def user_params
         params.require(:user)
               .permit(:email,
-                      :password)
+                      :password,
+                      :full_name)
       end
     end
   end

@@ -7,13 +7,8 @@
 # Licensed under
 # - GNU Affero General Public License V3
 # - CeCILL Affero compliant
-
-# Show user JSON template
-#
-# See https://github.com/nesquena/rabl#usage
-
-object @resource
-
-attribute :id
-attribute :email
-attribute :full_name
+class AddFullNameToUsers < ActiveRecord::Migration[6.0]
+  def change
+    add_column :users, :full_name, :text, null: false
+  end
+end

@@ -8,12 +8,9 @@
 # - GNU Affero General Public License V3
 # - CeCILL Affero compliant
 
-# Show user JSON template
-#
-# See https://github.com/nesquena/rabl#usage
+# User model tests
+describe User do
+  subject { build(:user) }
 
-object @resource
-
-attribute :id
-attribute :email
-attribute :full_name
+  it { expect(subject).to validate_presence_of(:full_name) }
+end

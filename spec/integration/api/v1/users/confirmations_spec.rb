@@ -22,10 +22,7 @@ describe 'Users confirmations tests' do
 
     it { expect(response).to have_http_status(:ok) }
     it 'is expected to respond with confirmed user' do
-      expect(json(response.body)['user']).to eq(
-        'id' => user.id,
-        'email' => user.email
-      )
+      expect(json(response.body)['user']['id']).to eq(user.id)
     end
     it 'is expected to confirm user email address' do
       expect(user.reload.confirmed_at).to be_present

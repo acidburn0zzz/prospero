@@ -15,6 +15,10 @@ module Support
   module Base
     extend ActiveSupport::Concern
 
+    def random_name
+      Faker::Name.name
+    end
+
     def random_email
       Faker::Internet.email
     end
