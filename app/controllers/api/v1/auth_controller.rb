@@ -20,6 +20,7 @@ module Api
     class AuthController < Api::V1::BaseController
       skip_before_action :authenticate_user!, only: :create
       prepend_before_action :allow_params_authentication!, only: :create
+      skip_authorization_check
 
       # Sign in
       #

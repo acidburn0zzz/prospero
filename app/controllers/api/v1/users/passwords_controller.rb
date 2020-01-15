@@ -20,6 +20,7 @@ module Api
       # See https://github.com/plataformatec/devise/blob/v4.7.1/app/controllers/devise/passwords_controller.rb
       class PasswordsController < Api::V1::BaseController
         skip_before_action :authenticate_user!
+        skip_authorization_check
 
         # Sends reset password instructions by e-mail
         #

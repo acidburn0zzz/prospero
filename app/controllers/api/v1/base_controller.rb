@@ -32,17 +32,24 @@ module Api
       # See https://guides.rubyonrails.org/action_controller_overview.html#filters
       before_action :authenticate_user!
 
+      # Endpoints that don't need authorization must explicitly skip this check.
+      #
+      # See https://github.com/CanCanCommunity/cancancan#lock-it-down
+      check_authorization
+
       # See https://guides.rubyonrails.org/action_controller_overview.html#rescue-from
       rescue_from ApplicationError,
                   with: :application_error
+      rescue_from CanCan::AccessDenied,
+                  with: :access_denied
       rescue_from ActiveRecord::RecordInvalid,
                   with: :record_invalid
       rescue_from ActiveRecord::RecordNotFound,
                   with: :not_found
-      rescue_from ActionController::InvalidAuthenticityToken,
-                  with: :invalid_authenticity_token
       rescue_from ActionController::ParameterMissing,
                   with: :parameter_missing
+      rescue_from ActionController::InvalidAuthenticityToken,
+                  with: :invalid_authenticity_token
 
       respond_to :json
 
@@ -51,6 +58,11 @@ module Api
       def application_error(exception)
         @error = exception.message
         render :error, status: :bad_request
+      end
+
+      def access_denied
+        @error = translate('errors.messages.forbidden')
+        render :error, status: :forbidden
       end
 
       def record_invalid(exception)

@@ -39,7 +39,7 @@ describe 'Users tests' do
       let(:given_email) { existing_user.email }
 
       it { expect(response).to have_http_status(:bad_request) }
-      it 'is eexpected to respond with error message' do
+      it 'is expected to respond with error message' do
         expect(json(response.body)['error']['email']).to(
           contain_exactly(translate('errors.messages.taken'))
         )
@@ -76,18 +76,38 @@ describe 'Users tests' do
     end
   end
 
+  context 'Show user' do
+    let(:logged_user) { create(:user, :confirmed) }
+    let(:user_to_show) { create(:user) }
+
+    before do
+      sign_in(logged_user)
+      get "/api/v1/users/#{user_to_show.id}"
+    end
+
+    it { expect(response).to have_http_status(:ok) }
+    it 'is expected to respond with requested user' do
+      expect(json(response.body)['user']).to eq(
+        'id' => user_to_show.id,
+        'email' => user_to_show.email,
+        'full_name' => user_to_show.full_name
+      )
+    end
+  end
+
   context 'Update user' do
-    let(:user) { create(:user, :confirmed, email: old_email) }
     let(:old_email) { random_email }
     let(:given_email) { random_email }
     let(:given_password) { random_password }
     let(:given_full_name) { random_name }
 
-    let!(:another_user) { create(:user) }
+    let(:logged_user) { create(:user, :confirmed, email: old_email) }
+    let(:user_to_update) { logged_user }
+    let(:not_logged_user) { create(:user) }
 
     before do
-      sign_in(user)
-      put '/api/v1/users', params: {
+      sign_in(logged_user)
+      put "/api/v1/users/#{user_to_update.id}", params: {
         user: {
           email: given_email,
           password: given_password,
@@ -99,20 +119,30 @@ describe 'Users tests' do
     it { expect(response).to have_http_status(:ok) }
     it 'is expected to respond with updated user still having old email' do
       expect(json(response.body)['user']).to eq(
-        'id' => user.id,
+        'id' => user_to_update.id,
         'email' => old_email,
         'full_name' => given_full_name
       )
     end
     it 'is expected to set unconfirmed_email with new email' do
-      expect(user.reload.unconfirmed_email).to eq(given_email)
+      expect(user_to_update.reload.unconfirmed_email).to eq(given_email)
     end
     it 'is expected to change password' do
-      expect(user.reload.valid_password?(given_password)).to be(true)
+      expect(user_to_update.reload.valid_password?(given_password)).to be(true)
     end
 
+    context 'when trying to update another user' do
+      let(:user_to_update) { not_logged_user }
+
+      it { expect(response).to have_http_status(:forbidden) }
+      it 'is expected to respond with error message' do
+        expect(json(response.body)['error']).to(
+          eq(translate('errors.messages.forbidden'))
+        )
+      end
+    end
     context 'when new e-mail already exists' do
-      let(:given_email) { another_user.email }
+      let(:given_email) { not_logged_user.email }
 
       it { expect(response).to have_http_status(:bad_request) }
       it 'is expected to respond with error message' do
@@ -145,12 +175,15 @@ describe 'Users tests' do
 
   context 'Delete user' do
     let(:user_password) { random_password }
-    let(:user) { create(:user, :confirmed, password: user_password) }
     let(:given_password) { user_password }
 
+    let(:logged_user) { create(:user, :confirmed, password: user_password) }
+    let(:user_to_delete) { logged_user }
+    let(:not_logged_user) { create(:user) }
+
     before do
-      sign_in(user)
-      delete '/api/v1/users', params: {
+      sign_in(logged_user)
+      delete "/api/v1/users/#{user_to_delete.id}", params: {
         user: {
           password: given_password
         }
@@ -160,15 +193,25 @@ describe 'Users tests' do
     it { expect(response).to have_http_status(:ok) }
     it 'is expected to respond with deleted user' do
       expect(json(response.body)['user']).to eq(
-        'id' => user.id,
-        'email' => user.email,
-        'full_name' => user.full_name
+        'id' => user_to_delete.id,
+        'email' => user_to_delete.email,
+        'full_name' => user_to_delete.full_name
       )
     end
     it 'is expected to delete user from database' do
-      expect(user).not_to be_persisted
+      expect(User.find_by_id(user_to_delete.id)).not_to be_present
     end
 
+    context 'when trying to delete another user' do
+      let(:user_to_delete) { not_logged_user }
+
+      it { expect(response).to have_http_status(:forbidden) }
+      it 'is expected to respond with error message' do
+        expect(json(response.body)['error']).to(
+          eq(translate('errors.messages.forbidden'))
+        )
+      end
+    end
     context 'when password is wrong' do
       let(:given_password) { random_password }
 
@@ -179,7 +222,7 @@ describe 'Users tests' do
         )
       end
       it 'is expected not to delete user from database' do
-        expect(user).to be_persisted
+        expect(user_to_delete).to be_persisted
       end
     end
   end
