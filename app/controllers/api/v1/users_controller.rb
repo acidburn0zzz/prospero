@@ -44,6 +44,23 @@ module Api
         render :show
       end
 
+      # Shows a user
+      #
+      # GET /api/v1/users/:id
+      #
+      # Response: the requested user
+      #   {
+      #     "user": {
+      #       "id": "b74ec2d0-ec55-4c6a-91bd-c4c669aa34f5",
+      #       "email": "email@example.net",
+      #       "full_name": "Ulrike Meinhof"
+      #     }
+      #   }
+      def show
+        @resource = User.find(params[:id])
+        authorize! :read, @resource
+      end
+
       # Updates user
       #
       # If the e-mail address is updated, a confirmation token will be sent to
