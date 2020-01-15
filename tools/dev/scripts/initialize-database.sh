@@ -14,7 +14,7 @@ source ~/.rvm/scripts/rvm
 cd /srv/prospero
 
 echo "Initializing database..."
-PROSPERO_LOG_LEVEL=warn rake db:create db:migrate db:test:prepare
+PROSPERO_LOG_LEVEL=warn rake db:create db:migrate db:seed db:test:prepare
 if [ $? -eq 0 ]
 then
   echo "Database initialized."
