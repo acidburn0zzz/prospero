@@ -19,7 +19,7 @@ Rails.application.routes.draw do
   get '/sample/:id', to: 'application#index'
 
   # See https://www.rubydoc.info/github/plataformatec/devise/master/ActionDispatch/Routing/Mapper%3Adevise_for
-  devise_for :users, skip: :all
+  devise_for :users, skip: :all, failure_app: Devise::JsonFailureApp
 
   get '/user/confirmation', to: 'application#index', as: :user_confirmation
   get '/password/edit',     to: 'application#index', as: :edit_user_password
