@@ -8,12 +8,9 @@
 # - GNU Affero General Public License V3
 # - CeCILL Affero compliant
 
-require 'active_support/concern'
-
 # Base helpers for tests
 module Support
   module Base
-    extend ActiveSupport::Concern
 
     def random_name
       Faker::Name.name
