@@ -22,5 +22,7 @@ class Ability
 
     can :read, User
     can %i[update destroy], User, id: user.id
+
+    can %i[read update], Preference, id: user.preference_id
   end
 end

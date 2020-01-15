@@ -11,6 +11,9 @@
 # Base helpers for tests
 module Support
   module Base
+    def available_locales
+      I18n.available_locales.map(&:to_s)
+    end
 
     def random_name
       Faker::Name.name

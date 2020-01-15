@@ -8,12 +8,9 @@
 # - GNU Affero General Public License V3
 # - CeCILL Affero compliant
 
-User.create!(
-  email: 'user@email.net',
-  password: 'password',
-  confirmed_at: Time.now,
-  full_name: 'Development User',
-  preference_attributes: {
-    locale: I18n.default_locale
-  }
-)
+# Preference objects factory for testing
+#
+# See https://github.com/thoughtbot/factory_bot/blob/master/GETTING_STARTED.md#defining-factories
+FactoryBot.define do
+  factory :preference
+end

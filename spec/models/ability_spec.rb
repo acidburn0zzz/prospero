@@ -70,4 +70,42 @@ describe Ability do
       end
     end
   end
+
+  context 'Preferences' do
+    context 'read' do
+      let(:user) { create(:user) }
+      let(:object) { user.preference }
+      let(:another_user) { create(:user) }
+
+      it 'is expected to authorize the same user' do
+        expect(described_class.new(user).can?(:read, object)).to be(true)
+      end
+      it 'is expected not to authorize the other users' do
+        expect(
+          described_class.new(another_user).can?(:read, object)
+        ).to be(false)
+      end
+      it 'is expected not to authorize anonymous user' do
+        expect(described_class.new(nil).can?(:read, object)).to be(false)
+      end
+    end
+
+    context 'update' do
+      let(:user) { create(:user) }
+      let(:object) { user.preference }
+      let(:another_user) { create(:user) }
+
+      it 'is expected to authorize the same user' do
+        expect(described_class.new(user).can?(:update, object)).to be(true)
+      end
+      it 'is expected not to authorize the other users' do
+        expect(
+          described_class.new(another_user).can?(:update, object)
+        ).to be(false)
+      end
+      it 'is expected not to authorize anonymous user' do
+        expect(described_class.new(nil).can?(:update, object)).to be(false)
+      end
+    end
+  end
 end

@@ -43,7 +43,12 @@ Rails.application.routes.draw do
         resource :confirmations, only: %i[create update]
         resource :passwords,     only: %i[create update]
       end
-      resources :users, only: %i[create show update destroy]
+      resources :users, only: %i[create show update destroy] do
+        member do
+          get :preference, to: 'users/preferences#show'
+          put :preference, to: 'users/preferences#update'
+        end
+      end
     end
   end
 end
