@@ -4,9 +4,12 @@
     "@babel/preset-react": "^7.7.4",
     "@rails/webpacker": "^4.2.0",
     "babel-plugin-transform-react-remove-prop-types": "^0.4.24",
+    "i18next": "^19.0.3",
+    "i18next-xhr-backend": "^3.2.2",
     "prop-types": "^15.7.2",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
+    "react-i18next": "^11.3.0",
     "react-router-dom": "^5.1.2",
     "react_ujs": "^2.6.0",
     "turbolinks": "^5.2.0"

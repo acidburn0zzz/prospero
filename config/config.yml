@@ -1,4 +1,5 @@
 default: &default
+  default_locale: <%= ENV['PROSPERO_DEFAULT_LOCALE'] || 'en' %>
   log_level: <%= ENV['PROSPERO_LOG_LEVEL'] %>
   mailer:
     sender: <%= ENV['PROSPERO_MAILER_SENDER'] %>

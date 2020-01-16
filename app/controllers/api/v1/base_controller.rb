@@ -55,6 +55,14 @@ module Api
 
       private
 
+      # Set locale based on user's preference
+      def set_locale
+        super
+        return unless user_signed_in?
+
+        I18n.locale = current_user.preference.locale
+      end
+
       def application_error(exception)
         @error = exception.message
         render :error, status: :bad_request

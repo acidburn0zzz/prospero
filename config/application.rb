@@ -43,5 +43,22 @@ module Prospero
     #
     # See routes.rb
     config.exceptions_app = routes
+
+    # Setup internationalization
+    config.i18n.available_locales = %i[de en es fr pt-BR]
+    config.i18n.default_locale = APP_CONFIG['default_locale'].to_sym
+    config.i18n.fallbacks = true
+
+    # Setup mailer
+    config.action_mailer.default_url_options = {
+      host: APP_CONFIG['mailer']['url_options']['host']
+    }
+    if APP_CONFIG['port'].present?
+      config.action_mailer.default_url_options[:port] =
+        APP_CONFIG['mailer']['url_options']['port']
+    end
+
+    # Autoload libs
+    config.autoload_paths << Rails.root.join('lib')
   end
 end
