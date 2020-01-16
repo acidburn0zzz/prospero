@@ -14,6 +14,9 @@
 #
 # See https://guides.rubyonrails.org/action_controller_overview.html
 class ApplicationController < ActionController::Base
+  skip_before_action :verify_authenticity_token,
+                     only: %i[not_found server_error]
+
   # HTTP status 404
   #
   # Render error response for resources not found.
