@@ -15,6 +15,8 @@ module Api
       skip_before_action :authenticate_user!
       skip_authorization_check
 
+      rescue_from I18n::InvalidLocale, with: :server_error
+
       # Updates anonymous user locale
       #
       # Store locale in session cookie.
@@ -30,6 +32,10 @@ module Api
       #   }
       def update
         locale = params.require(:locale)
+        unless I18n.available_locales.include?(locale.to_sym)
+          raise I18n::InvalidLocale, locale
+        end
+
         session[:locale] = locale
         render json: { locale: locale }
       end
