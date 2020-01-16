@@ -26,5 +26,11 @@ describe 'Locale tests' do
     it 'is expected to update session cookie' do
       expect(session[:locale]).to eq(given_locale)
     end
+
+    context 'when locale is invalid' do
+      let(:given_locale) { 'invalid' }
+
+      it { expect(response).to have_http_status(:server_error) }
+    end
   end
 end
