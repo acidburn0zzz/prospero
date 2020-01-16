@@ -21,6 +21,7 @@ module Api
       # See https://github.com/plataformatec/devise/blob/v4.7.1/app/controllers/devise/confirmations_controller.rb
       class ConfirmationsController < Api::V1::BaseController
         skip_before_action :authenticate_user!
+        skip_authorization_check
 
         # Re-sends e-mail address confirmation token
         #

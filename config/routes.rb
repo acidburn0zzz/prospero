@@ -19,7 +19,7 @@ Rails.application.routes.draw do
   get '/sample/:id', to: 'application#index'
 
   # See https://www.rubydoc.info/github/plataformatec/devise/master/ActionDispatch/Routing/Mapper%3Adevise_for
-  devise_for :users, skip: :all
+  devise_for :users, skip: :all, failure_app: Devise::JsonFailureApp
 
   get '/user/confirmation', to: 'application#index', as: :user_confirmation
   get '/password/edit',     to: 'application#index', as: :edit_user_password
@@ -38,11 +38,17 @@ Rails.application.routes.draw do
   namespace :api do
     # APIv1 Routes
     namespace :v1, defaults: { format: 'json' } do
-      resource :auth,  only: %i[create destroy], controller: :auth
-      resource :users, only: %i[create update destroy]
+      resource :auth,   only: %i[create destroy], controller: :auth
+      resource :locale, only: :update
       namespace :users do
         resource :confirmations, only: %i[create update]
         resource :passwords,     only: %i[create update]
+      end
+      resources :users, only: %i[create show update destroy] do
+        member do
+          get :preference, to: 'users/preferences#show'
+          put :preference, to: 'users/preferences#update'
+        end
       end
     end
   end

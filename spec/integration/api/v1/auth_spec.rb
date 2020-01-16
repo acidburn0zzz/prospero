@@ -39,8 +39,7 @@ describe 'Authentication tests' do
       it { expect(response).to have_http_status(:unauthorized) }
       it 'is expected to respond with error message' do
         expect(json(response.body)['error']).to eq(
-          translate('devise.failure.invalid',
-                    authentication_keys: User.authentication_keys)
+          translate('devise.failure.invalid')
         )
       end
     end
@@ -50,8 +49,7 @@ describe 'Authentication tests' do
       it { expect(response).to have_http_status(:unauthorized) }
       it 'is expected to respond with error message' do
         expect(json(response.body)['error']).to eq(
-          translate('devise.failure.invalid',
-                    authentication_keys: User.authentication_keys)
+          translate('devise.failure.invalid')
         )
       end
     end

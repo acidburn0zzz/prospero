@@ -8,12 +8,10 @@
 # - GNU Affero General Public License V3
 # - CeCILL Affero compliant
 
-User.create!(
-  email: 'user@email.net',
-  password: 'password',
-  confirmed_at: Time.now,
-  full_name: 'Development User',
-  preference_attributes: {
-    locale: I18n.default_locale
-  }
-)
+# Show user preference JSON template
+#
+# See https://github.com/nesquena/rabl#usage
+
+object @resource
+
+attribute :locale

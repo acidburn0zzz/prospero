@@ -29,5 +29,15 @@ class User < ApplicationRecord
     :async
   )
 
+  belongs_to :preference, dependent: :destroy
+
   validates_presence_of :full_name
+
+  after_initialize :init_preference, if: :new_record?
+
+  private
+
+  def init_preference
+    self.preference = Preference.new
+  end
 end
