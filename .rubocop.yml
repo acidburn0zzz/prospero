@@ -1,18 +1,18 @@
 AllCops:
   Exclude:
-    - 'bin/**/*'
-    - 'config.ru'
-    - 'config/**/*'
-    - 'db/schema.rb'
-    - 'Gemfile'
-    - 'node_modules/**/*'
-    - 'Rakefile'
+    - bin/**/*
+    - config.ru
+    - db/schema.rb
+    - Gemfile
+    - node_modules/**/*
+    - Rakefile
 
 Metrics/BlockLength:
   Exclude:
-    - 'db/migrate/*'
-    - 'spec/**/*'
+    - config/**/*
+    - db/migrate/*
+    - spec/**/*
 
 Metrics/MethodLength:
   Exclude:
-    - 'db/migrate/*'
+    - db/migrate/*

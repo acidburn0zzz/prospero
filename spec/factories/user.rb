@@ -18,5 +18,6 @@ FactoryBot.define do
     end
     email { Faker::Internet.email }
     password { Faker::Internet.password }
+    full_name { Faker::Name.name }
   end
 end

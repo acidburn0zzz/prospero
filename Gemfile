@@ -3,12 +3,15 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.6.5'
 
-# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
+# Rails framework
 gem 'rails',                      '~> 6.0.0'
-# Authentication library
+gem 'rails-i18n',                 '~> 6.0.0'
+# Authorization management
+gem 'cancancan',                  '~> 3.0'
+# Authentication management
 gem 'devise',                     '~> 4.0'
-# Delivery Devise e-mails asynchronously
 gem 'devise-async',               '~> 1.0'
+gem 'devise-i18n',                '~> 1.0'
 # Optimzed JSON parser and serializer
 gem 'oj',                         '~> 3.0'
 # Use PostgreSQL as the database for Active Record

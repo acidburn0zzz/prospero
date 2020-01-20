@@ -11,5 +11,9 @@
 User.create!(
   email: 'user@email.net',
   password: 'password',
-  confirmed_at: Time.now
+  confirmed_at: Time.now,
+  full_name: 'Development User',
+  preference_attributes: {
+    locale: I18n.default_locale
+  }
 )

@@ -11,13 +11,13 @@
 
 Please [enable Two-Factor Authentication](https://framagit.org/profile/two_factor_auth) to your account.
 
-[Go to the project's home page](https://framagit.org/lobster/prospero) and request developer accces by clicking on **Request access**.
+[Go to the project's home page](https://framagit.org/prospero/prospero) and request developer accces by clicking on **Request access**.
 
 You don't need to wait for your request to be accepted to proceed, but you won't be able to perform step 4 before having developer access garanteed.
 
 #### 1 (alternative). Create your own fork
 
-If you want to contribute punctually without requesting developer access to the project, [create your own fork of Prospéro](https://framagit.org/lobster/prospero/-/forks/new).
+If you want to contribute punctually without requesting developer access to the project, [create your own fork of Prospéro](https://framagit.org/prospero/prospero/-/forks/new).
 
 In this case, clone your fork's repository and skip the step 2.
 
@@ -28,7 +28,7 @@ In this case, clone your fork's repository and skip the step 2.
 Clone Prospéro repository by running:
 
 ```sh
-git clone git@framagit.org:lobster/prospero.git
+git clone git@framagit.org:prospero/prospero.git
 cd prospero
 ```
 
@@ -85,7 +85,7 @@ git push
 
 #### 7. Create a merge request
 
-When your changes [work perfectly on your local machine](running_prospero_in_the_development_environment.md), no code-style offenses are detected, all tests pass, and you have pushed all your local changes to the remote repository, you are able to [create a Merge Request](https://framagit.org/lobster/prospero/merge_requests/new).
+When your changes [work perfectly on your local machine](running_prospero_in_the_development_environment.md), no code-style offenses are detected, all tests pass, and you have pushed all your local changes to the remote repository, you are able to [create a Merge Request](https://framagit.org/prospero/prospero/merge_requests/new).
 
 - Select your feature branch as **source branch**
 - Select **develop** as **target branch**
@@ -97,7 +97,7 @@ Wait for the pipeline to be executed for your branch, you should see something l
 ![](merge-request-pipeline.jpg)
 
 - Make sure the pipeline has passed
-- Make sure your merge request doesn't decrease the [current code coverage](https://lobster.frama.io/prospero/coverage)
+- Make sure your merge request doesn't decrease the [current code coverage](https://prospero.frama.io/prospero/coverage)
 
 If your merge request respects the previous conditions, edit it and assign it to another team member for reviewing. Otherwise, repeat steps 5 and 6 until the merge request satisfies all required conditions.
 

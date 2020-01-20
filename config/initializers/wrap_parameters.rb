@@ -1,9 +1,20 @@
+# frozen_string_literal: true
+
+# Prospero
+#
+# You should have received a copy of the license along with this program.
+#
+# Licensed under
+# - GNU Affero General Public License V3
+# - CeCILL Affero compliant
+
 # Be sure to restart your server when you modify this file.
 
 # This file contains settings for ActionController::ParamsWrapper which
 # is enabled by default.
 
-# Enable parameter wrapping for JSON. You can disable this by setting :format to an empty array.
+# Enable parameter wrapping for JSON. You can disable this by setting :format
+# to an empty array.
 ActiveSupport.on_load(:action_controller) do
   wrap_parameters format: [:json]
 end

@@ -8,12 +8,16 @@
 # - GNU Affero General Public License V3
 # - CeCILL Affero compliant
 
-require 'active_support/concern'
-
 # Base helpers for tests
 module Support
   module Base
-    extend ActiveSupport::Concern
+    def available_locales
+      I18n.available_locales.map(&:to_s)
+    end
+
+    def random_name
+      Faker::Name.name
+    end
 
     def random_email
       Faker::Internet.email
