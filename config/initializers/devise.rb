@@ -1,9 +1,16 @@
 # frozen_string_literal: true
 
+# Prospero
+#
+# You should have received a copy of the license along with this program.
+#
+# Licensed under
+# - GNU Affero General Public License V3
+# - CeCILL Affero compliant
+
 # Use this hook to configure devise mailer, warden hooks and so forth.
 # Many of these configuration options can be set straight in your model.
 Devise.setup do |config|
-
   # Configure the parent class responsible to send e-mails.
   config.parent_mailer = 'ApplicationMailer'
 
@@ -20,7 +27,8 @@ Devise.setup do |config|
 
   # Configure which authentication keys should have whitespace stripped.
   # These keys will have whitespace before and after removed upon creating or
-  # modifying a user and when used to authenticate or find a user. Default is :email.
+  # modifying a user and when used to authenticate or find a user. Default is
+  # :email.
   config.strip_whitespace_keys = [:email]
 
   # It will change confirmation, password recovery and other workflows
@@ -37,13 +45,15 @@ Devise.setup do |config|
 
   # ==> Configuration for :database_authenticatable
   # For bcrypt, this is the cost for hashing the password and defaults to 11. If
-  # using other algorithms, it sets how many times you want the password to be hashed.
+  # using other algorithms, it sets how many times you want the password to be
+  # hashed.
   #
-  # Limiting the stretches to just one in testing will increase the performance of
-  # your test suite dramatically. However, it is STRONGLY RECOMMENDED to not use
-  # a value less than 10 in other environments. Note that, for bcrypt (the default
-  # algorithm), the cost increases exponentially with the number of stretches (e.g.
-  # a value of 20 is already extremely slow: approx. 60 seconds for 1 calculation).
+  # Limiting the stretches to just one in testing will increase the performance
+  # of your test suite dramatically. However, it is STRONGLY RECOMMENDED to not
+  # use a value less than 10 in other environments. Note that, for bcrypt (the
+  # default algorithm), the cost increases exponentially with the number of
+  # stretches (e.g. a value of 20 is already extremely slow: approx. 60 seconds
+  # for 1 calculation).
   config.stretches = Rails.env.test? ? 1 : 11
 
   # Send a notification to the original email when the user's email is changed.
@@ -63,9 +73,10 @@ Devise.setup do |config|
   config.confirm_within = 3.days
 
   # If true, requires any email changes to be confirmed (exactly the same way as
-  # initial account confirmation) to be applied. Requires additional unconfirmed_email
-  # db field (see migrations). Until confirmed, new email is stored in
-  # unconfirmed_email column, and copied to email column on successful confirmation.
+  # initial account confirmation) to be applied. Requires additional
+  # unconfirmed_email db field (see migrations). Until confirmed, new email is
+  # stored in unconfirmed_email column, and copied to email column on successful
+  # confirmation.
   config.reconfirmable = true
 
   # ==> Configuration for :rememberable

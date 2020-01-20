@@ -16,26 +16,56 @@ import React from 'react';
 import { BrowserRouter as Router, Link } from "react-router-dom";
 import Routes from './Routes';
 
-function App() {
-  return (
-    <Router>
-      <ul>
-        <li>
-          <Link to="/">Home</Link>
-        </li>
-        <li>
-          <Link to="/sample/1">Test link 1</Link>
-        </li>
-        <li>
-          <Link to="/sample/2">Test link 2</Link>
-        </li>
-        <li>
-          <Link to="/sample/3">Test link 3</Link>
-        </li>
-      </ul>
-      <Routes />
-    </Router>
-  );
+import { withTranslation } from 'react-i18next';
+
+import api from '../apis/prospero';
+
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.api = api;
+  }
+
+  setLocale(locale, event) {
+    event.preventDefault();
+    this.api
+        .locale()
+        .update()
+        .call({ locale: locale })
+        .then(
+          (success) => {
+            this.props.i18n.changeLanguage(success.locale);
+          }
+        );
+  }
+
+  render() {
+    const t = this.props.t;
+    return (
+      <Router>
+        <Link to="#" onClick={this.setLocale.bind(this, 'en')}
+                     style={{ marginRight: '10px'}}>
+          English
+        </Link>
+        <Link to="#"onClick={this.setLocale.bind(this, 'fr')}>Français</Link>
+        <ul>
+          <li>
+            <Link to="/">{t('menu.home')}</Link>
+          </li>
+          <li>
+            <Link to="/sample/1">{t('menu.sample', { number: 1 })}</Link>
+          </li>
+          <li>
+            <Link to="/sample/2">{t('menu.sample', { number: 2 })}</Link>
+          </li>
+          <li>
+            <Link to="/sample/3">{t('menu.sample', { number: 3 })}</Link>
+          </li>
+        </ul>
+        <Routes />
+      </Router>
+    );
+  }
 }
 
-export default App;
+export default withTranslation()(App);

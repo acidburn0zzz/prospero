@@ -27,10 +27,7 @@ describe 'Authentication tests' do
 
     it { expect(response).to have_http_status(:ok) }
     it 'is expected to respond with signed in user' do
-      expect(json(response.body)['user']).to eq(
-        'id' => user.id,
-        'email' => user.email
-      )
+      expect(json(response.body)['user']['id']).to eq(user.id)
     end
     it 'is expected to create session cookie' do
       expect(session['warden.user.user.key']).to include([user.id])
@@ -42,8 +39,7 @@ describe 'Authentication tests' do
       it { expect(response).to have_http_status(:unauthorized) }
       it 'is expected to respond with error message' do
         expect(json(response.body)['error']).to eq(
-          translate('devise.failure.invalid',
-                    authentication_keys: User.authentication_keys)
+          translate('devise.failure.invalid')
         )
       end
     end
@@ -53,8 +49,7 @@ describe 'Authentication tests' do
       it { expect(response).to have_http_status(:unauthorized) }
       it 'is expected to respond with error message' do
         expect(json(response.body)['error']).to eq(
-          translate('devise.failure.invalid',
-                    authentication_keys: User.authentication_keys)
+          translate('devise.failure.invalid')
         )
       end
     end
@@ -80,10 +75,7 @@ describe 'Authentication tests' do
 
     it { expect(response).to have_http_status(:ok) }
     it 'is expected to respond with signed out user' do
-      expect(json(response.body)['user']).to eq(
-        'id' => user.id,
-        'email' => user.email
-      )
+      expect(json(response.body)['user']['id']).to eq(user.id)
     end
     it 'is expected to delete session cookie' do
       expect(session['warden.user.user.key']).not_to be_present

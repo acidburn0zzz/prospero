@@ -14,20 +14,21 @@
 
 import React from 'react';
 import { useParams } from 'react-router-dom';
+import { withTranslation } from 'react-i18next';
 
-function Sample() {
+function Sample({ t }) {
   let { id } = useParams();
   return (
     <div className="sample">
-      <h1>Sample page</h1>
+      <h1>{t('sample.title')}</h1>
       <div>
-        This is a sample page.
+        {t('sample.description.0')}
       </div>
       <div>
-        The given Id in the URL is: <strong>{id}</strong>
+        {t('sample.description.1')} <strong>{id}</strong>
       </div>
     </div>
   );
 }
 
-export default Sample;
+export default withTranslation()(Sample);

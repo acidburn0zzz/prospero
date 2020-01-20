@@ -13,16 +13,17 @@
 */
 
 import React from 'react';
+import { withTranslation } from 'react-i18next';
 
-function Home() {
+function Home({ t }) {
   return (
     <div className="home">
-      <h1>Prospéro 3 Home</h1>
+      <h1>{t('home.title')}</h1>
       <div>
-        This is the home page.
+        {t('home.description')}
       </div>
     </div>
   );
 }
 
-export default Home;
+export default withTranslation()(Home);

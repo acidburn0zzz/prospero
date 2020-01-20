@@ -28,4 +28,16 @@ class User < ApplicationRecord
     # See https://github.com/plataformatec/devise/wiki/How-To:-Send-devise-emails-in-background-(Resque,-Sidekiq-and-Delayed::Job)#for-devise--211
     :async
   )
+
+  belongs_to :preference, dependent: :destroy
+
+  validates_presence_of :full_name
+
+  after_initialize :init_preference, if: :new_record?
+
+  private
+
+  def init_preference
+    self.preference = Preference.new
+  end
 end

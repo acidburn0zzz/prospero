@@ -16,3 +16,4 @@ object @resource
 
 attribute :id
 attribute :email
+attribute :full_name
