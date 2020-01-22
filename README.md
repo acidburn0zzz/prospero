@@ -17,6 +17,16 @@ See our development documentation:
 * [Development workflow](docs/development_workflow.md)
 * [Running Prospéro in the development environment](docs/running_prospero_in_the_development_environment.md)
 
+## Contributors
+
+* **André Rocha** - mathematician coder
+* **Aymeric Luneau** - sociologist & translator coder
+* **Felipe Batista** - lead developer & team coordinator
+* **Jean-Pierre Charriau** - software developer
+* **Jérôme Gaillaguet** - sociologist coder
+* **Josquin Debaz** - system administrator & sociologist coder
+* **Waldir Lisboa Rocha** - sociologist coder
+
 ## Version control
 
 See our [version control documentation](docs/versioning_control.md).
