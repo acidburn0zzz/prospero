@@ -71,6 +71,38 @@ pages:
   only:
     - develop
 
+deploy-staging:
+  stage: deploy
+  before_script:
+    - apk add git curl bash nodejs jq
+    - curl https://cli-assets.heroku.com/install.sh | sh
+    # Setup Heroku authentication
+    - heroku_email=$(tools/ci_cd/scripts/print-heroku-email.sh $HEROKU_API_KEY)
+    - cp tools/ci_cd/heroku/.netrc ~/
+    - sed --in-place "s/\[LOGIN\]/$heroku_email/g" ~/.netrc
+    - sed --in-place "s/\[PASSWORD\]/$HEROKU_API_KEY/g" ~/.netrc
+    # Setup Git config
+    - git config --global user.name 'GitLab CI/CD'
+    - git config --global user.email ci@gitlab.com
+    - heroku git:remote --app $HEROKU_APP_STAGING --remote staging
+    # Enable maintenance mode on staging instance
+    - heroku maintenance:on --app $HEROKU_APP_STAGING
+  script:
+    # Setup staging secret credentials
+    # See https://guides.rubyonrails.org/security.html#custom-credentials
+    - cp $CREDENTIALS_STAGING config/credentials.yml.enc
+    - git add config/credentials.yml.enc
+    # Deploy code
+    - git commit --message "Deploy to staging"
+    - git push staging HEAD:refs/heads/master --force
+    # Run database migrations
+    - heroku rake db:migrate --app $HEROKU_APP_STAGING
+  after_script:
+    # Disable maintenance mode on staging instance
+    - heroku maintenance:off --app $HEROKU_APP_STAGING
+  only:
+    - develop
+
 # If 'develop' has just been merged into to 'master', then create a Merge Request
 # of 'master' into 'hotfix'.
 #
@@ -82,10 +114,10 @@ synchronize-main-branches:
   stage: deploy
   before_script:
     - apk add bash curl jq
-    - merged_branch=$(tools/ci_cd/print-merge-source.sh "$CI_COMMIT_TITLE")
+    - merged_branch=$(tools/ci_cd/scripts/print-merge-source.sh "$CI_COMMIT_TITLE")
     - if [ "$merged_branch" == "develop" ]; then target=hotfix; else target=develop; fi
   script: >
-    tools/ci_cd/create-merge-request.sh \
+    tools/ci_cd/scripts/create-merge-request.sh \
       --gitlab-url $GITLAB_URL \
       --access-token $ACCESS_TOKEN \
       --project-name $CI_PROJECT_NAME \
@@ -109,7 +141,7 @@ publish-docker-image:
   before_script:
     - apk add bash curl jq
   script: >
-    tools/ci_cd/create-pipeline.sh \
+    tools/ci_cd/scripts/create-pipeline.sh \
       --gitlab-url $GITLAB_URL \
       --access-token $ACCESS_TOKEN \
       --project-name $DOCKER_IMAGE_PROJECT_NAME \
