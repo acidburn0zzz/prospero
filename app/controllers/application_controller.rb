@@ -41,11 +41,11 @@ class ApplicationController < ActionController::Base
   def server_error
     respond_to do |format|
       format.html do
-        render :server_error, status: :server_error
+        render :server_error, status: :internal_server_error
       end
       format.json do
         @error = translate('errors.messages.server_error')
-        render :error, status: :server_error
+        render :error, status: :internal_server_error
       end
     end
   end
