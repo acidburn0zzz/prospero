@@ -11,7 +11,7 @@
 # Initialize database schema
 echo "Initializing database schema..."
 source ~/.rvm/scripts/rvm
-cd /srv/prospero
+cd ~/prospero
 
 echo "Initializing database..."
 PROSPERO_LOG_LEVEL=warn rake db:create db:migrate db:seed db:test:prepare

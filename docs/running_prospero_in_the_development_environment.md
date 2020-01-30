@@ -57,12 +57,12 @@ Welcome to Ubuntu 18.04.3 LTS (GNU/Linux 4.15.0-70-generic x86_64)
 .
 .
 .
-vagrant@4b01633b6ac8:/srv/prospero
+vagrant@4b01633b6ac8:~/prospero
 ```
 
 #### 3. Launch Prospéro
 
-_From the development environment at `/srv/prospero`_
+_From the development environment at `~/prospero`_
 
 Start Prospéro processes using [Foreman](https://ddollar.github.io/foreman/).
 
@@ -120,7 +120,7 @@ exit
 
 Check for code-style offenses with [Rubocop](https://www.rubocop.org)
 
-_From the development environment at `/srv/prospero`_
+_From the development environment at `~/prospero`_
 
 ```sh
 rubocop
@@ -130,7 +130,7 @@ rubocop
 
 Run automate tests with [RSpec](https://rspec.info/).
 
-_From the development environment at `/srv/prospero`_
+_From the development environment at `~/prospero`_
 
 ```sh
 rspec

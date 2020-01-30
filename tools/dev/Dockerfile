@@ -70,7 +70,7 @@ RUN \
     # https://github.com/gdraheim/docker-systemctl-replacement/issues/62
     && ln -ns /lib/systemd/system/postgresql@.service /etc/systemd/system/multi-user.target.wants/postgresql@12-main.service \
     # Set up the vagrant user and its SSH key (globally public)
-    && useradd -ms /bin/bash -u "$VAGRANT_UID" vagrant \
+    && useradd -ms /bin/bash vagrant \
     && mkdir -m 700 ~vagrant/.ssh \
     && curl -so ~vagrant/.ssh/authorized_keys 'https://raw.githubusercontent.com/hashicorp/vagrant/be7876d83644aa6bdf7f951592fdc681506bcbe6/keys/vagrant.pub' \
     && chown -R vagrant: ~vagrant/.ssh \
@@ -86,8 +86,7 @@ RUN su vagrant -c "gpg2 --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3 7D2
 RUN su vagrant -c "curl -sSL https://get.rvm.io | bash -s stable"
 RUN su vagrant -c "/home/vagrant/.rvm/bin/rvm install ruby-2.6.5"
 
-RUN ln -nsf /srv/prospero /home/vagrant/prospero
-RUN echo "cd /srv/prospero" >> /home/vagrant/.profile
+RUN echo "cd ~/prospero" >> /home/vagrant/.profile
 
 CMD ["/bin/systemctl"]
 

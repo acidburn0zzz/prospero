@@ -10,7 +10,7 @@
 
 Vagrant.configure('2') do |config|
   config.vm.synced_folder '.', '/vagrant', disabled: true
-  config.vm.synced_folder '.', '/srv/prospero'
+  config.vm.synced_folder '.', '/home/vagrant/prospero'
 
   config.vm.network :forwarded_port, guest: 5000, host: 5000
 
@@ -26,7 +26,6 @@ Vagrant.configure('2') do |config|
 
   config.vm.provider :docker do |docker|
     docker.build_dir = File.join(__dir__, 'tools', 'dev')
-    docker.build_args = ['--build-arg', "VAGRANT_UID=#{Process.uid}"]
     docker.has_ssh = true
   end
 end

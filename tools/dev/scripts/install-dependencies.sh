@@ -11,7 +11,7 @@
 # Install prospero dependencies
 echo "Installing dependencies..."
 source ~/.rvm/scripts/rvm
-cd /srv/prospero
+cd ~/prospero
 gem install rubocop -v '~> 0.77.0'
 gem install foreman
 gem install bundler:2.0.2
