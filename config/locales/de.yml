@@ -17,40 +17,35 @@ en:
   devise:
     failure:
       # Authentication failure
-      invalid: Invalid e-mail or password
+      invalid: E-Mail oder Passwort ungültig
     mailer:
       # Message to confirm user's email address
       confirmation_instructions:
-        subject: Confirm your e-mail address
+        subject: Bestätigen Sie Ihre E-Mail Adresse
         body:
-          - Hello %{full_name},
-          - To get started using Prospéro, click the link below to confirm your
-            e-mail address.
-        link_label: Confirm my e-mail address
+          - Hallo %{full_name},
+          - Um das Benutzen von Prospéro zu starten, klicken Sie den Link unterhalb zur der Bestätigung Ihrer E-Mail Adresse.
+        link_label: Bestätigung meiner E-Mail Adresse
       # Message to reset user's password
       reset_password_instructions:
-        subject: Reset your Prospéro password
+        subject: Setzen Sie ihr Passwort zurück
         body:
-          - Hello %{full_name},
-          - Someone (hopefully you) has requested a link to change your
-            password. Click the link below to reset your password.
-        link_label: Reset my password
-        disclaimer: If you didn't request this, please ignore this email.
+          - Hallo %{full_name},
+          - Jemand (hoffentlich Sie) hat einen Link angefragt, um Ihr Passwort zu ändern. Klicken Sie den Link unterhalb, um Ihr Passwort zurückzusetzen.
+        link_label: Setzte mein Passwort zurück
+        disclaimer: Wenn Sie das nicht angefragt haben, ignorieren Sie bitte diese E-Mail.
       # Notification when user's email address has been changed
       email_changed:
-        subject: Your Prospéro e-mail has been changed
+        subject: Ihre Prospéro E-Mail wurde geändert
         body:
-          - Hello %{full_name},
+          - Hallo %{full_name},
         confirmed_message: >
-          We're contacting you to notify that your Prospéro email has been
-          changed to %{email}.
+          Wir kontaktieren Sie, um Ihnen mitzuteilen, dass Ihre Prospéro E-Mail zu folgender geändert wurde %{email}.
         unconfirmed_message: >
-          We're contacting you to notify that your Prospéro email is being
-          changed to %{unconfirmed_email}.
+          Wir kontaktieren Sie, um Ihnen mitzuteilen, dass Ihre Prospéro E-Mail gerade zu folgender geändert wird %{unconfirmed_email}.
       # Notification when user's password has been changed
       password_change:
-        subject: Your Prospéro password has been changed
+        subject: Ihr Prospéro Passwort wurde geändert
         body:
-          - Hello %{full_name},
-          - We're contacting you to notify you that your Prospéro password has
-            been changed.
+          - Hallo %{full_name},
+          - Wir kontaktieren Sie, um Ihnen mitzuteilen, dass Ihr Prospéro Passwort geändert wurde.
