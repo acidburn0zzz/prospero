@@ -1,0 +1,56 @@
+# Prospero
+#
+# You should have received a copy of the license along with this program.
+#
+# Licensed under
+# - GNU Affero General Public License V3
+# - CeCILL Affero compliant
+
+# English application messages
+#
+# See https://guides.rubyonrails.org/i18n.html.
+
+en:
+  # Devise messages translations
+  #
+  # See https://github.com/plataformatec/devise/wiki/I18n
+  devise:
+    failure:
+      # Authentication failure
+      invalid: Invalid e-mail or password
+    mailer:
+      # Message to confirm user's email address
+      confirmation_instructions:
+        subject: Confirm your e-mail address
+        body:
+          - Hello %{full_name},
+          - To get started using Prospéro, click the link below to confirm your
+            e-mail address.
+        link_label: Confirm my e-mail address
+      # Message to reset user's password
+      reset_password_instructions:
+        subject: Reset your Prospéro password
+        body:
+          - Hello %{full_name},
+          - Someone (hopefully you) has requested a link to change your
+            password. Click the link below to reset your password.
+        link_label: Reset my password
+        disclaimer: If you didn't request this, please ignore this email.
+      # Notification when user's email address has been changed
+      email_changed:
+        subject: Your Prospéro e-mail has been changed
+        body:
+          - Hello %{full_name},
+        confirmed_message: >
+          We're contacting you to notify that your Prospéro email has been
+          changed to %{email}.
+        unconfirmed_message: >
+          We're contacting you to notify that your Prospéro email is being
+          changed to %{unconfirmed_email}.
+      # Notification when user's password has been changed
+      password_change:
+        subject: Your Prospéro password has been changed
+        body:
+          - Hello %{full_name},
+          - We're contacting you to notify you that your Prospéro password has
+            been changed.
