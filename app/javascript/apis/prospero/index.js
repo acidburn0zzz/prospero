@@ -12,8 +12,10 @@
 * Prospero backend service
 */
 
-import Locale from './locale';
+import Auth  from './auth';
+import Users from './users';
 
 export default {
-  locale: () => new Locale()
+  auth: () => new Auth(),
+  users: (id) => new Users(id)
 };

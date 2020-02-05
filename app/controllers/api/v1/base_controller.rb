@@ -32,6 +32,9 @@ module Api
       # See https://guides.rubyonrails.org/action_controller_overview.html#filters
       before_action :authenticate_user!
 
+      # Set locale based on user's preference
+      before_action :set_locale
+
       # Endpoints that don't need authorization must explicitly skip this check.
       #
       # See https://github.com/CanCanCommunity/cancancan#lock-it-down
@@ -55,12 +58,13 @@ module Api
 
       private
 
-      # Set locale based on user's preference
       def set_locale
-        super
-        return unless user_signed_in?
+        if user_signed_in?
+          I18n.locale = current_user.preference.locale
+          return
+        end
 
-        I18n.locale = current_user.preference.locale
+        I18n.locale = params[:locale] if params[:locale].present?
       end
 
       def application_error(exception)

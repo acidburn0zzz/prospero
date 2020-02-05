@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="<%= I18n.locale %>">
   <head>
-    <title>Prospero</title>
+    <title>Prospéro</title>
+
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -9,7 +10,14 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body style="background-color: #dddddd">
-    <%= yield %>
+  <body>
+    <nav class="navbar navbar-expand navbar-dark fixed-top bg-dark">
+      <a class="navbar-brand" href="/<%= I18n.locale %>">
+        Prospéro
+      </a>
+    </nav>
+    <main role="main">
+      <%= yield %>
+    </main>
   </body>
 </html>
