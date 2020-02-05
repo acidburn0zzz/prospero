@@ -56,3 +56,26 @@ fr:
           - Bonjour %{full_name},
           - Nous vous écrivons pour vous signaler que votre mot de passe a été
             modifié dans Prospéro.
+  # Error messages translations
+  errors:
+    messages:
+      # Trying to confirm an email address that has already been confirmed
+      already_confirmed: Votre e-mail a déjà été confirmé, vous pouvez dès à présent vous connecter
+      # Trying to confirm an email address but the confirmation token expired
+      confirmation_period_expired: >
+        Le délai de confirmation de votre e-mail a expiré depuis le %{period}, faites une nouvelle demande s'il vous plaît.
+      # Trying to reset the password but the token expired
+      expired: Le délai de confirmation de votre mot de passe a expiré, faites une nouvelle demande s'il vous plaît.
+      # HTTP status 401 message https://en.wikipedia.org/wiki/List_of_HTTP_status_codes#401
+      forbidden: >
+        Vous n'êtes pas autorisé à accéder à cette ressource ou effectuer cette action
+      # Invalid CSRF authenticity token https://en.wikipedia.org/wiki/Cross-site_request_forgery
+      invalid_authenticity_token: Nous n'avons pas pu vérifier l'authenticité du CSRF
+      # HTTP status 404 message https://en.wikipedia.org/wiki/List_of_HTTP_status_codes#404
+      not_found: Introuvable
+      # Missing required parameter
+      param_missing: "Il manque la valeur ou le paramètre suivant : %{param}"
+      # Password missmatch trying to delete account
+      password_missmatch: Mot de passe incorrecte
+      # HTTP status 500 message https://en.wikipedia.org/wiki/List_of_HTTP_status_codes#500
+      server_error: Erreur de service interne
