@@ -21,6 +21,30 @@ module Api
     class UsersController < Api::V1::BaseController
       skip_before_action :authenticate_user!, only: :create
 
+      # List users
+      #
+      # GET /api/v1/users
+      #
+      # Reponse: the list of users
+      #   [
+      #     {
+      #       "user": {
+      #         "id": "b74ec2d0-ec55-4c6a-91bd-c4c669aa34f5",
+      #         "full_name": "Ulrike Meinhof"
+      #       }
+      #     },
+      #     {
+      #       "user": {
+      #         "id": "68d35a64-6e49-4b78-8e8d-dbb0a60bb9d4",
+      #         "full_name": "Baden Powell"
+      #       }
+      #     }
+      #   ]
+      def index
+        authorize! :list, User
+        @resources = User.all
+      end
+
       # Creates a new user
       #
       # POST /api/v1/users
