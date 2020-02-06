@@ -140,7 +140,7 @@ publish-docker-image:
   stage: deploy
   before_script:
     - apk add bash curl jq
-    - version_name=$(tools/ci_cd/print-version-name.sh $CI_COMMIT_TAG)
+    - version_name=$(tools/ci_cd/scripts/print-version-name.sh $CI_COMMIT_TAG)
   script: >
     tools/ci_cd/scripts/create-pipeline.sh \
       --gitlab-url $GITLAB_URL \
