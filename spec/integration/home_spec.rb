@@ -9,10 +9,28 @@
 # - CeCILL Affero compliant
 
 # Home page integration tests
-context 'Home' do
+describe 'Home' do
   before do
     get '/'
   end
 
-  it { expect(response).to have_http_status(:ok) }
+  it { expect(response).to have_http_status(:redirect) }
+
+  I18n.available_locales.each do |locale|
+    context "when locale is #{locale}" do
+      before do
+        get "/#{locale}"
+      end
+
+      it { expect(response).to have_http_status(:ok) }
+    end
+  end
+
+  context 'when locale is invalid' do
+    before do
+      get '/invalid'
+
+      it { expect(response).to have_http_status(:not_found) }
+    end
+  end
 end

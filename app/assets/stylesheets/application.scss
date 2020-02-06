@@ -13,3 +13,26 @@
  *= require_tree .
  *= require_self
  */
+
+ @import "bootstrap";
+
+ body {
+   padding-top: 8rem;
+ }
+
+ .alert {
+   position: fixed;
+   width: 100%;
+   top: 56px;
+   z-index: 1030;
+ }
+
+ .users-container {
+   height: 300px;
+   .users-box {
+     .users-list {
+       height: 298px;
+       overflow-y: auto;
+     }
+   }
+ }

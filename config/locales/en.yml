@@ -11,6 +11,26 @@
 # See https://guides.rubyonrails.org/i18n.html.
 
 en:
+  # ActiveRecord messages translations
+  #
+  # See https://guides.rubyonrails.org/i18n.html#translations-for-active-record-models
+  activerecord:
+    attributes:
+      user:
+        confirmation_token: Confirmation token
+        email: E-mail
+        full_name: Full name
+        password: Password
+        password_confirmation: Confirm password
+        you: you
+    models:
+      user:
+        one: User
+        other: Users
+  app:
+    menu_bar:
+      users: Community
+      logout: Logout
   # Devise messages translations
   #
   # See https://github.com/plataformatec/devise/wiki/I18n
@@ -73,7 +93,51 @@ en:
       not_found: Not found
       # Missing required parameter
       param_missing: "Parameter is missing or the value is empty: %{param}"
+      # Password confirmation missmatch
+      password_confirmation_missmatch: please confirm password
       # Password missmatch trying to delete account
       password_missmatch: Invalid password
       # HTTP status 500 message https://en.wikipedia.org/wiki/List_of_HTTP_status_codes#500
       server_error: Internal server error
+  pages:
+    # Edit password page translations
+    edit_user_password:
+      password: New password
+      password_confirmation: Confirm new password
+      submit: Change password
+      success: Your password has been succesfully changed.
+    # E-mail confirmation page translations
+    edit_user_confirmation:
+      success: You have succesfully confirmed your e-mail address.
+    # Home page translations
+    home:
+      got_to_app: Go to app
+      sign_in: Sign in
+      sign_up: Create an account
+      source_code: Source code
+      welcome: Welcome to Prospéro
+    # New confirmation page translations
+    new_user_confirmation:
+      submit: Send confirmation link
+      success: >
+        If your e-mail address exists in our database, you will receive a
+        confirmation link at your e-mail address in a few minutes.
+    # New password page translations
+    new_user_password:
+      submit: Send password recovery link
+      success: >
+        If your e-mail address exists in our database, you will receive a
+        password recovery link at your e-mail address in a few minutes.
+    # Sign in page translations
+    sign_in:
+      submit: Sign in
+    # Sign up page translations
+    sign_up:
+      submit: Create account
+      success: A confirmation e-mail will be sent to <1>%{email}</1>
+    shared:
+      home: Go to home page
+      new_user_confirmation: Didn't receive your confirmation link?
+      new_user_password: Forgot your password?
+      sign_in: Sign in
+      sign_up: Create account
