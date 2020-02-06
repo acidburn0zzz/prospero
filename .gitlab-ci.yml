@@ -140,6 +140,7 @@ publish-docker-image:
   stage: deploy
   before_script:
     - apk add bash curl jq
+    - version_name=$(tools/ci_cd/print-version-name.sh $CI_COMMIT_TAG)
   script: >
     tools/ci_cd/scripts/create-pipeline.sh \
       --gitlab-url $GITLAB_URL \
@@ -147,7 +148,7 @@ publish-docker-image:
       --project-name $DOCKER_IMAGE_PROJECT_NAME \
       --project-namespace $DOCKER_IMAGE_PROJECT_NAMESPACE \
       --pipeline-ref master \
-      --pipeline-variables "[{ \"key\": \"PROSPERO_VERSION\", \"value\": \"$CI_COMMIT_TAG\" }]"
+      --pipeline-variables "[{ \"key\": \"PROSPERO_VERSION\", \"value\": \"$version_name\" }]"
   only:
     refs:
       - tags
