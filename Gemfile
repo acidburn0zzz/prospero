@@ -6,6 +6,8 @@ ruby '2.6.5'
 # Rails framework
 gem 'rails',                      '~> 6.0.0'
 gem 'rails-i18n',                 '~> 6.0.0'
+# Bootstrap integration. See https://getbootstrap.com/
+gem 'bootstrap',                  '~> 4.0'
 # Authorization management
 gem 'cancancan',                  '~> 3.0'
 # Authentication management

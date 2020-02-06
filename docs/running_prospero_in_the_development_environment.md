@@ -4,6 +4,8 @@
 
 - Install the latest version of [Vagrant](https://www.vagrantup.com/downloads.html)
 - Install the latest version of [Docker](https://docs.docker.com/install/)
+  - Windows installer: https://download.docker.com/win/stable/Docker%20Desktop%20Installer.exe
+  - Mac installer: https://download.docker.com/mac/stable/Docker.dmg
 
 #### 1. Start the development environment
 

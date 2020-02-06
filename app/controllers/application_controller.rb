@@ -17,9 +17,6 @@ class ApplicationController < ActionController::Base
   skip_before_action :verify_authenticity_token,
                      only: %i[not_found server_error]
 
-  # Set locale based on user's session
-  before_action :set_locale
-
   # HTTP status 404
   #
   # Render error response for resources not found.
@@ -48,11 +45,5 @@ class ApplicationController < ActionController::Base
         render :error, status: :internal_server_error
       end
     end
-  end
-
-  private
-
-  def set_locale
-    I18n.locale = session[:locale] if session[:locale].present?
   end
 end

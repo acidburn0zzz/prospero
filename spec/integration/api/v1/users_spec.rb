@@ -10,6 +10,24 @@
 
 # Users APIv1 integration tests
 describe 'Users tests' do
+  context 'List users' do
+    let!(:user1) { create(:user, :confirmed) }
+    let!(:user2) { create(:user) }
+    let!(:user3) { create(:user) }
+
+    before do
+      sign_in(user1)
+      get '/api/v1/users'
+    end
+
+    it { expect(response).to have_http_status(:ok) }
+    it 'is expected to response with all users in the database' do
+      expect(json(response.body).map { |item| item['user']['id'] }).to(
+        contain_exactly(user1.id, user2.id, user3.id)
+      )
+    end
+  end
+
   context 'Create user' do
     let!(:existing_user) { create(:user) }
     let(:given_email) { random_email }
