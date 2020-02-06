@@ -57,10 +57,10 @@ Devise.setup do |config|
   config.stretches = Rails.env.test? ? 1 : 11
 
   # Send a notification to the original email when the user's email is changed.
-  config.send_email_changed_notification = false
+  config.send_email_changed_notification = true
 
   # Send a notification email when the user's password is changed.
-  config.send_password_change_notification = false
+  config.send_password_change_notification = true
 
   # ==> Configuration for :confirmable
 

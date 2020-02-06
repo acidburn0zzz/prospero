@@ -8,22 +8,17 @@
 * - CeCILL Affero compliant
 */
 
-/**
-* Home page component.
-*/
 
-import React from 'react';
+import React               from 'react';
 import { withTranslation } from 'react-i18next';
 
-function Home({ t }) {
+function LinkToSignUp(props) {
   return (
-    <div className="home">
-      <h1>{t('home.title')}</h1>
-      <div>
-        {t('home.description')}
-      </div>
-    </div>
+    <a href={ `/${props.i18n.language}`  }
+       className={ props.className } >
+      { props.t('pages.shared.home') }
+    </a>
   );
 }
 
-export default withTranslation()(Home);
+export default withTranslation()(LinkToSignUp);

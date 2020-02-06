@@ -6,6 +6,8 @@ ruby '2.6.5'
 # Rails framework
 gem 'rails',                      '~> 6.0.0'
 gem 'rails-i18n',                 '~> 6.0.0'
+# Bootstrap integration. See https://getbootstrap.com/
+gem 'bootstrap',                  '~> 4.0'
 # Authorization management
 gem 'cancancan',                  '~> 3.0'
 # Authentication management
@@ -27,7 +29,7 @@ gem 'sass-rails',                 '~> 6.0'
 # Async jobs processing
 gem 'sidekiq',                    '~> 6.0'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
-gem 'turbolinks',                 '~> 5'
+gem 'turbolinks',                 '~> 5.0'
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
 gem 'webpacker',                  '~> 4.0'
 

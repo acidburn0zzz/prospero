@@ -8,7 +8,12 @@
 * - CeCILL Affero compliant
 */
 
-import en from './en'
-import fr from './fr'
+import Resource from './resource';
 
-export default { en: en, fr: fr };
+class Auth extends Resource {
+  constructor(id) {
+    super('/auth');
+  }
+}
+
+export default Auth;

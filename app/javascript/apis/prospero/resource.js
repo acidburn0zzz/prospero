@@ -15,6 +15,10 @@ class Resource {
     this.path = path;
   }
 
+  index() {
+    return new Endpoint('GET', this.path);
+  }
+
   create() {
     return new Endpoint('POST', this.path);
   }
@@ -27,7 +31,7 @@ class Resource {
     return new Endpoint('PUT', this.path);
   }
 
-  destroy() {
+  delete() {
     return new Endpoint('DELETE', this.path);
   }
 }

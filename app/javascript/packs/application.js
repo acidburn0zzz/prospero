@@ -16,6 +16,6 @@
 
 require("turbolinks").start();
 var ReactRailsUJS = require("react_ujs");
-var componentRequireContext = require.context("components", true);
+var componentRequireContext = require.context("components", false);
 
 ReactRailsUJS.useContext(componentRequireContext);

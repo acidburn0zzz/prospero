@@ -11,6 +11,7 @@ default: &default
     url_options:
       host: <%= ENV['PROSPERO_MAILER_URL_OPTIONS_HOST'] %>
       port: <%= ENV['PROSPERO_MAILER_URL_OPTIONS_PORT'] %>
+  source_code_url: https://framagit.org/prospero/prospero
 
 production:
   <<: *default

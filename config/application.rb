@@ -53,7 +53,7 @@ module Prospero
     config.action_mailer.default_url_options = {
       host: APP_CONFIG['mailer']['url_options']['host']
     }
-    if APP_CONFIG['port'].present?
+    if APP_CONFIG['mailer']['url_options']['port'].present?
       config.action_mailer.default_url_options[:port] =
         APP_CONFIG['mailer']['url_options']['port']
     end
