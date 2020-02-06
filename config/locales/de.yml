@@ -82,3 +82,11 @@ de:
       password_missmatch: Passwort ungültig
       # HTTP status 500 message https://en.wikipedia.org/wiki/List_of_HTTP_status_codes#500
       server_error: Interner Serverfehler
+  pages:
+    # Home page translations
+    home:
+      got_to_app: Go to app
+      sign_in: Sign in
+      sign_up: Create an account
+      source_code: Source code
+      welcome: Welcome to Prospéro
