@@ -6,11 +6,11 @@
 # - GNU Affero General Public License V3
 # - CeCILL Affero compliant
 
-# English application messages
+# German application messages
 #
 # See https://guides.rubyonrails.org/i18n.html.
 
-en:
+de:
   # Devise messages translations
   #
   # See https://github.com/plataformatec/devise/wiki/I18n
