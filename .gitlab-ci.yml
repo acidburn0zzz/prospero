@@ -51,7 +51,7 @@ test:
     # Compile JavaScript assets
     - rails webpacker:compile
   script:
-    - bundle exec rspec
+    - bundle exec rspec --seed 14607 # TODO remove seed option
   coverage: /\(\d+.\d+\%\) covered/
   artifacts:
     paths:
