@@ -37,6 +37,10 @@ In order to avoid useless [merge](https://git-scm.com/docs/git-merge) commits ev
 git config --global pull.rebase true
 ```
 
+## Commit messages
+
+Commit messages are very important, please take the time to read [this article](https://chris.beams.io/posts/git-commit/) about how to write good Git commit messages.
+
 ## Recommended configuration (advanced)
 
 #### Set Vim as [core editor](https://www.git-scm.com/book/en/v2/Customizing-Git-Git-Configuration#_code_core_editor_code)
@@ -92,7 +96,3 @@ git log
 ```
 
 ...and chose the one you prefer keep using.
-
-## Commit messages
-
-Commit messages are very important, please take the time to read [this article](https://chris.beams.io/posts/git-commit/) about how to write good Git commit messages.
