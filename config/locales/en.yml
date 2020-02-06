@@ -23,10 +23,6 @@ en:
         password: Password
         password_confirmation: Confirm password
         you: you
-    models:
-      user:
-        one: User
-        other: Users
   app:
     menu_bar:
       users: Community
