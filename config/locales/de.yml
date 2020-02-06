@@ -56,3 +56,29 @@ de:
           - Hallo %{full_name},
           - Wir kontaktieren Sie, um Ihnen mitzuteilen, dass Ihr Prospéro
             Passwort geändert wurde.
+  # Error messages translations
+  errors:
+    messages:
+      # Trying to confirm an email address that has already been confirmed
+      already_confirmed: >
+        wurde bereits bestätigt, bitte versuchen Sie sich anzumelden
+      # Trying to confirm an email address but the confirmation token expired
+      confirmation_period_expired: >
+        muss innerhalb %{period} bestätigt werden, bitte fragen Sie neu an
+      # Trying to reset the password but the token expired
+      expired: ist abgelaufen, bitte fragen Sie neu an
+      # HTTP status 401 message https://en.wikipedia.org/wiki/List_of_HTTP_status_codes#401
+      forbidden: >
+        Sie sind nicht autorisiert, auf diese Ressource zuzugreifen oder diese
+        Aktion auszuführen
+      # Invalid CSRF authenticity token https://en.wikipedia.org/wiki/Cross-site_request_forgery
+      invalid_authenticity_token: >
+        Die Echtheit des CSRF-Tokens kann nicht bestätigt werden
+      # HTTP status 404 message https://en.wikipedia.org/wiki/List_of_HTTP_status_codes#404
+      not_found: Nicht gefunden
+      # Missing required parameter
+      param_missing: "Parameter fehlt oder der Wert ist leer: %{param}"
+      # Password missmatch trying to delete account
+      password_missmatch: Passwort ungültig
+      # HTTP status 500 message https://en.wikipedia.org/wiki/List_of_HTTP_status_codes#500
+      server_error: Interner Serverfehler
