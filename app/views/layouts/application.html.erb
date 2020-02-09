@@ -8,6 +8,7 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'bootstrap', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
@@ -15,6 +16,18 @@
       <a class="navbar-brand" href="/<%= I18n.locale %>">
         Prospéro
       </a>
+      <div class="nav-item dropdown">
+        <a class="dropdown-toggle" href="#" data-toggle="dropdown">
+          <%= locale_names[I18n.locale] %>
+        </a>
+        <div class="dropdown-menu">
+          <% locale_names.each do |locale, name| %>
+            <% if locale != I18n.locale %>
+              <%= link_to name, home_path(locale: locale), class: "dropdown-item" %>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
     </nav>
     <main role="main">
       <%= yield %>

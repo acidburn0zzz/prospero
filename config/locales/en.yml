@@ -17,11 +17,8 @@ en:
   activerecord:
     attributes:
       user:
-        confirmation_token: Confirmation token
         email: E-mail
         full_name: Full name
-        password: Password
-        password_confirmation: Confirm password
         you: you
   app:
     menu_bar:
