@@ -27,8 +27,6 @@ const Switch            = lazy(() => import('react-router-dom').then(module => (
 const Router            = lazy(() => import('react-router-dom').then(module => ({ default: module.BrowserRouter })));
 const Redirect          = lazy(() => import('react-router-dom').then(module => ({ default: module.Redirect })));
 
-const language = document.getElementsByTagName('html')[0].attributes.lang.value;
-
 function Placeholder() {
   return <div></div>;
 }
@@ -46,7 +44,7 @@ class Index extends React.Component {
             // init i18next
             // for all options read: https://www.i18next.com/overview/configuration-options
             .init({
-              lng: language,
+              lng: this.props.locale,
               fallbackLng: 'en'
             },
             () => this.setState({ isLoaded: true }));

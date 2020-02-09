@@ -19,7 +19,7 @@ Rails.application.routes.draw do
   get '/app/users',     to: 'pages#react', as: :app_users
   get '/app/users/:id', to: 'pages#react', as: :app_user
 
-  get '/:locale', to: 'pages#home'
+  get '/:locale', to: 'pages#home', as: :home
 
   get '/:locale/users/sign_in',
       to: 'pages#react',
