@@ -19,11 +19,12 @@ en:
       user:
         email: E-mail
         full_name: Full name
-        you: you
   app:
     menu_bar:
       users: Community
       logout: Logout
+    users:
+      current_user: you
   # Devise messages translations
   #
   # See https://github.com/plataformatec/devise/wiki/I18n
