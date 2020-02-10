@@ -114,7 +114,7 @@ function UsersListItem(props) {
             { user.full_name }
           </Link>
       } {
-        isCurrentUser ? `(${t('activerecord.attributes.user.you')})` : ''
+        isCurrentUser ? `(${t('app.users.current_user')})` : ''
       }
     </div>
   );
