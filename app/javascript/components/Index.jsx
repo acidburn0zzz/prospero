@@ -14,6 +14,7 @@
 
 import React, { Suspense, lazy } from 'react';
 import Flash                     from './common/Flash';
+import Placeholder               from './common/Placeholder';
 
 const App               = lazy(() => import('./app/Index'));
 const SignIn            = lazy(() => import('./devise/SignIn'));
@@ -26,10 +27,6 @@ const Route             = lazy(() => import('react-router-dom').then(module => (
 const Switch            = lazy(() => import('react-router-dom').then(module => ({ default: module.Switch })));
 const Router            = lazy(() => import('react-router-dom').then(module => ({ default: module.BrowserRouter })));
 const Redirect          = lazy(() => import('react-router-dom').then(module => ({ default: module.Redirect })));
-
-function Placeholder() {
-  return <div></div>;
-}
 
 class Index extends React.Component {
   constructor(props) {

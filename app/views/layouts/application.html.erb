@@ -12,23 +12,14 @@
   </head>
 
   <body>
-    <nav class="navbar navbar-expand navbar-dark fixed-top bg-dark">
-      <a class="navbar-brand" href="/<%= I18n.locale %>">
-        Prospéro
-      </a>
-      <div class="nav-item dropdown">
-        <a class="dropdown-toggle" href="#" data-toggle="dropdown">
-          <%= locale_names[I18n.locale] %>
-        </a>
-        <div class="dropdown-menu">
-          <% locale_names.each do |locale, name| %>
-            <% if locale != I18n.locale %>
-              <%= link_to name, home_path(locale: locale), class: "dropdown-item" %>
-            <% end %>
-          <% end %>
-        </div>
-      </div>
-    </nav>
+    <%=
+      react_component(
+        "Navbar",
+        locale: I18n.locale,
+        currentUserId: current_user && current_user.id
+      )
+    %>
+
     <main role="main">
       <%= yield %>
     </main>

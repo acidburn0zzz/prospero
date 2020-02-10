@@ -12,12 +12,4 @@
 #
 # see https://api.rubyonrails.org/classes/ActionController/Helpers.html
 module ApplicationHelper
-  def locale_names
-    {
-      de: 'Deutsch',
-      en: 'English',
-      fr: 'Français',
-      "pt-BR": 'Português (Brasil)'
-    }
-  end
 end
