@@ -97,6 +97,8 @@ deploy-staging:
     - git push staging HEAD:refs/heads/master --force
     # Run database migrations
     - heroku rake db:migrate --app $HEROKU_APP_STAGING
+    # Language identification training
+    - heroku rake scylla:train[/app/tmp]
   after_script:
     # Disable maintenance mode on staging instance
     - heroku maintenance:off --app $HEROKU_APP_STAGING
