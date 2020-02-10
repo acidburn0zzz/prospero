@@ -18,6 +18,7 @@ import { Link, useLocation, useRouteMatch } from 'react-router-dom';
 const localeNames = {
   de: 'Deutsch',
   en: 'English',
+  es: 'Castellano',
   fr: 'Français',
   'pt-BR': 'Português (Brasil)'
 };
