@@ -41,8 +41,9 @@ class Index extends React.Component {
             // init i18next
             // for all options read: https://www.i18next.com/overview/configuration-options
             .init({
-              lng: this.props.locale,
-              fallbackLng: 'en'
+              load: 'currentOnly',
+              fallbackLng: 'en',
+              lng: this.props.locale
             },
             () => this.setState({ isLoaded: true }));
         }
