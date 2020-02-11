@@ -12,7 +12,7 @@
 #
 # See https://github.com/nesquena/rabl#usage
 
-collection @resources
+collection @resources, root: 'users', object_root: false
 
 attribute :id
 attribute :full_name
