@@ -64,6 +64,17 @@ Rails.application.routes.draw do
     # APIv1 Routes
     namespace :v1, defaults: { format: 'json' } do
       resource :auth,   only: %i[create destroy], controller: :auth
+      resources :directories, only: %i[index create update destroy] do
+        member do
+          resources :documents,
+                    only: :index,
+                    controller: 'directories/documents'
+          resources :files,
+                    only: :index,
+                    controller: 'directories/files'
+        end
+      end
+      resources :documents, only: %i[create show update destroy]
       resource :locale, only: :update
       namespace :users do
         resource :confirmations, only: %i[create update]
@@ -71,8 +82,9 @@ Rails.application.routes.draw do
       end
       resources :users, only: %i[index create show update destroy] do
         member do
-          get :preference, to: 'users/preferences#show'
-          put :preference, to: 'users/preferences#update'
+          resource :preference,
+                   only: %i[show update],
+                   controller: 'users/preferences'
         end
       end
     end

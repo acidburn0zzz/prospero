@@ -24,5 +24,8 @@ class Ability
     can %i[update destroy], User, id: user.id
 
     can %i[read update], Preference, id: user.preference_id
+
+    can %i[list create read update destroy], Document
+    can %i[list create read update destroy], Directory
   end
 end

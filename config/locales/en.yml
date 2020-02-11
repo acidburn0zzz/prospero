@@ -21,9 +21,10 @@ en:
         full_name: Full name
   app:
     menu_bar:
-      users: Community
+      community: Community
+      library: Library
       logout: Logout
-    users:
+    community:
       current_user: you
   # Devise messages translations
   #
