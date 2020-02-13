@@ -85,8 +85,8 @@ de:
   pages:
     # Home page translations
     home:
-      got_to_app: Go to app
-      sign_in: Sign in
-      sign_up: Create an account
-      source_code: Source code
-      welcome: Welcome to Prospéro
+      got_to_app: Öffnen Sie die App
+      sign_in: Melden Sie sich an
+      sign_up: Registrieren Sie sich
+      source_code: Quelltext
+      welcome: Willkommen in Prospéro
