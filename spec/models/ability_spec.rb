@@ -19,54 +19,62 @@ describe Ability do
       end
     end
 
+    context 'list' do
+      let(:user) { create(:user) }
+
+      it 'is expected to authorize listing directories' do
+        expect(described_class.new(user).can?(:list, User)).to be(true)
+      end
+    end
+
     context 'read' do
-      let(:object) { create(:user) }
+      let(:user) { create(:user) }
       let(:another_user) { create(:user) }
 
       it 'is expected to authorize the same user' do
-        expect(described_class.new(object).can?(:read, object)).to be(true)
+        expect(described_class.new(user).can?(:read, user)).to be(true)
       end
       it 'is expected to authorize the other users' do
         expect(
-          described_class.new(another_user).can?(:read, object)
+          described_class.new(user).can?(:read, another_user)
         ).to be(true)
       end
       it 'is expected not to authorize anonymous user' do
-        expect(described_class.new(nil).can?(:read, object)).to be(false)
+        expect(described_class.new(nil).can?(:read, user)).to be(false)
       end
     end
 
     context 'update' do
-      let(:object) { create(:user) }
+      let(:user) { create(:user) }
       let(:another_user) { create(:user) }
 
       it 'is expected to authorize the same user' do
-        expect(described_class.new(object).can?(:update, object)).to be(true)
+        expect(described_class.new(user).can?(:update, user)).to be(true)
       end
       it 'is expected not to authorize the other users' do
         expect(
-          described_class.new(another_user).can?(:update, object)
+          described_class.new(user).can?(:update, another_user)
         ).to be(false)
       end
       it 'is expected not to authorize anonymous user' do
-        expect(described_class.new(nil).can?(:update, object)).to be(false)
+        expect(described_class.new(nil).can?(:update, user)).to be(false)
       end
     end
 
     context 'destroy' do
-      let(:object) { create(:user) }
+      let(:user) { create(:user) }
       let(:another_user) { create(:user) }
 
       it 'is expected to authorize the same user' do
-        expect(described_class.new(object).can?(:destroy, object)).to be(true)
+        expect(described_class.new(user).can?(:destroy, user)).to be(true)
       end
       it 'is expected not to authorize the other users' do
         expect(
-          described_class.new(another_user).can?(:destroy, object)
+          described_class.new(user).can?(:destroy, another_user)
         ).to be(false)
       end
       it 'is expected not to authorize anonymous user' do
-        expect(described_class.new(nil).can?(:destroy, object)).to be(false)
+        expect(described_class.new(nil).can?(:destroy, user)).to be(false)
       end
     end
   end
@@ -74,37 +82,129 @@ describe Ability do
   context 'Preferences' do
     context 'read' do
       let(:user) { create(:user) }
-      let(:object) { user.preference }
+      let(:preference) { user.preference }
       let(:another_user) { create(:user) }
 
       it 'is expected to authorize the same user' do
-        expect(described_class.new(user).can?(:read, object)).to be(true)
+        expect(described_class.new(user).can?(:read, preference)).to be(true)
       end
       it 'is expected not to authorize the other users' do
         expect(
-          described_class.new(another_user).can?(:read, object)
+          described_class.new(another_user).can?(:read, preference)
         ).to be(false)
       end
       it 'is expected not to authorize anonymous user' do
-        expect(described_class.new(nil).can?(:read, object)).to be(false)
+        expect(described_class.new(nil).can?(:read, preference)).to be(false)
       end
     end
 
     context 'update' do
       let(:user) { create(:user) }
-      let(:object) { user.preference }
+      let(:preference) { user.preference }
       let(:another_user) { create(:user) }
 
       it 'is expected to authorize the same user' do
-        expect(described_class.new(user).can?(:update, object)).to be(true)
+        expect(described_class.new(user).can?(:update, preference)).to be(true)
       end
       it 'is expected not to authorize the other users' do
         expect(
-          described_class.new(another_user).can?(:update, object)
+          described_class.new(another_user).can?(:update, preference)
         ).to be(false)
       end
       it 'is expected not to authorize anonymous user' do
-        expect(described_class.new(nil).can?(:update, object)).to be(false)
+        expect(described_class.new(nil).can?(:update, preference)).to be(false)
+      end
+    end
+  end
+
+  context 'Directory' do
+    context 'list' do
+      let(:user) { create(:user) }
+
+      it 'is expected to authorize listing directories' do
+        expect(described_class.new(user).can?(:list, Directory)).to be(true)
+      end
+    end
+
+    context 'create' do
+      let(:user) { create(:user) }
+      let(:directory) { build(:directory) }
+
+      it 'is expected to authorize listing directories' do
+        expect(described_class.new(user).can?(:create, directory)).to be(true)
+      end
+    end
+
+    context 'read' do
+      let(:user) { create(:user) }
+      let(:directory) { build(:directory) }
+
+      it 'is expected to authorize listing directories' do
+        expect(described_class.new(user).can?(:read, directory)).to be(true)
+      end
+    end
+
+    context 'update' do
+      let(:user) { create(:user) }
+      let(:directory) { build(:directory) }
+
+      it 'is expected to authorize listing directories' do
+        expect(described_class.new(user).can?(:update, directory)).to be(true)
+      end
+    end
+
+    context 'destroy' do
+      let(:user) { create(:user) }
+      let(:directory) { build(:directory) }
+
+      it 'is expected to authorize listing directories' do
+        expect(described_class.new(user).can?(:destroy, directory)).to be(true)
+      end
+    end
+  end
+
+  context 'Documents' do
+    context 'list' do
+      let(:user) { create(:user) }
+
+      it 'is expected to authorize listing directories' do
+        expect(described_class.new(user).can?(:list, Document)).to be(true)
+      end
+    end
+
+    context 'create' do
+      let(:user) { create(:user) }
+      let(:document) { build(:document) }
+
+      it 'is expected to authorize listing directories' do
+        expect(described_class.new(user).can?(:create, document)).to be(true)
+      end
+    end
+
+    context 'read' do
+      let(:user) { create(:user) }
+      let(:document) { build(:document) }
+
+      it 'is expected to authorize listing directories' do
+        expect(described_class.new(user).can?(:read, document)).to be(true)
+      end
+    end
+
+    context 'update' do
+      let(:user) { create(:user) }
+      let(:document) { build(:document) }
+
+      it 'is expected to authorize listing directories' do
+        expect(described_class.new(user).can?(:update, document)).to be(true)
+      end
+    end
+
+    context 'destroy' do
+      let(:user) { create(:user) }
+      let(:document) { build(:document) }
+
+      it 'is expected to authorize listing directories' do
+        expect(described_class.new(user).can?(:destroy, document)).to be(true)
       end
     end
   end

@@ -8,11 +8,10 @@
 # - GNU Affero General Public License V3
 # - CeCILL Affero compliant
 
-# User index JSON template
-#
-# See https://github.com/nesquena/rabl#usage
+# Document model tests
+describe do
+  subject { build(:document) }
 
-collection @resources, root: 'users', object_root: false
-
-attribute :id
-attribute :full_name
+  it { expect(subject).to validate_presence_of(:body) }
+  it { expect(subject).to validate_presence_of(:parent) }
+end
