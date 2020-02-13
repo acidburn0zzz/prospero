@@ -15,29 +15,29 @@ Rails.application.routes.draw do
   # See https://guides.rubyonrails.org/routing.html#using-root
   root to: 'pages#root'
 
-  get '/app',           to: 'pages#react', as: :app
-  get '/app/users',     to: 'pages#react', as: :app_users
-  get '/app/users/:id', to: 'pages#react', as: :app_user
+  get '/app',                 to: 'pages#app', as: :app
+  get '/app/directories',     to: 'pages#app', as: :app_directories
+  get '/app/directories/:id', to: 'pages#app', as: :app_directory
 
   get '/:locale', to: 'pages#home', as: :home
 
   get '/:locale/users/sign_in',
-      to: 'pages#react',
+      to: 'pages#devise',
       as: :sign_in
   get '/:locale/users/sign_up',
-      to: 'pages#react',
+      to: 'pages#devise',
       as: :sign_up
   get '/:locale/users/confirmations/new',
-      to: 'pages#react',
+      to: 'pages#devise',
       as: :new_user_confirmation
   get '/:locale/users/confirmations/edit',
-      to: 'pages#react',
+      to: 'pages#devise',
       as: :edit_user_confirmation
   get '/:locale/users/passwords/new',
-      to: 'pages#react',
+      to: 'pages#devise',
       as: :new_user_password
   get '/:locale/users/passwords/edit',
-      to: 'pages#react',
+      to: 'pages#devise',
       as: :edit_user_password
 
   # See https://www.rubydoc.info/github/plataformatec/devise/master/ActionDispatch/Routing/Mapper%3Adevise_for

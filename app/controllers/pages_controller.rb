@@ -12,9 +12,23 @@
 #
 # This controller renders static pages.
 class PagesController < ApplicationController
-  before_action :set_locale, except: :root
+  before_action :set_locale, except: %i[app root]
 
   rescue_from I18n::InvalidLocale, with: :not_found
+
+  # Renders application connected routes
+  def app
+    if user_signed_in?
+      render :react
+    else
+      redirect_to sign_in_path(locale: I18n.locale)
+    end
+  end
+
+  # Renders authentication routes
+  def devise
+    render :react
+  end
 
   # Redirects to default locale's home page
   def root

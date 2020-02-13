@@ -27,17 +27,21 @@ function Navbar(props) {
       <a className="navbar-brand" href={ `/${props.locale}` }>
         Prospéro
       </a>
-      <Suspense fallback={ <Placeholder /> }>
-        <Router>
-          <Switch>
-            <Route path="/app">
-            </Route>
-            <Route path="/:locale">
-              <LanguagesDropdown />
-            </Route>
-          </Switch>
-        </Router>
-      </Suspense>
+      {
+        props.currentUserId ?
+          undefined :
+          <Suspense fallback={ <Placeholder /> }>
+            <Router>
+              <Switch>
+                <Route path="/app">
+                </Route>
+                <Route path="/:locale">
+                  <LanguagesDropdown />
+                </Route>
+              </Switch>
+            </Router>
+          </Suspense>
+      }
     </nav>
   );
 }

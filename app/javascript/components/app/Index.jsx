@@ -14,7 +14,7 @@
 
 import React   from 'react';
 import MenuBar from './MenuBar';
-import Users   from './Users';
+import Library from './Library';
 import {
   Switch,
   Route,
@@ -27,16 +27,16 @@ function Index(props) {
     <Router>
       <MenuBar />
       <Switch>
-        <Route path="/app/users/:id">
-          <Users setState={ props.setFlash }
-                 currentUserId={ props.currentUserId } />
+        <Route path="/app/directories/:directoryId">
+          <Library setState={ props.setFlash }
+                   currentUserId={ props.currentUserId } />
         </Route>
-        <Route path="/app/users">
-          <Users setState={ props.setFlash }
-                 currentUserId={ props.currentUserId } />
+        <Route path="/app/directories">
+          <Library setState={ props.setFlash }
+                   currentUserId={ props.currentUserId } />
         </Route>
         <Route path="/app">
-          <Redirect to="/app/users" />
+          <Redirect to="/app/directories" />
         </Route>
       </Switch>
     </Router>

@@ -39,7 +39,7 @@ class MenuBar extends React.Component {
       <Container>
         <div className="row py-2">
           <div className="col-1">
-            <strong>{ t('app.menu_bar.users') }</strong>
+            <strong>{ t('app.menu_bar.library') }</strong>
           </div>
           <div className="col-1 offset-10 text-right">
             <Link to="#"

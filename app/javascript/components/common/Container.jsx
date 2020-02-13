@@ -15,8 +15,8 @@
 import React from 'react';
 
 function Container(props) {
-  const containerClass = `container-fluid border rounded
-                          bg-light border-secondary ${props.containerClass}`;
+  const containerClass = `container-fluid border rounded bg-light
+                          border-secondary ${props.containerClass || ''}`;
   return (
     <div className="m-3">
       <div className={ containerClass }>

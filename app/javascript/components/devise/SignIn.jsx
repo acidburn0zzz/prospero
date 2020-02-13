@@ -42,16 +42,14 @@ class SignIn extends Page {
         .auth()
         .create()
         .call(formData)
-        .then(
-          (response) => {
-            if (response.error) {
-              this.setFlash({ type: 'danger', message: response.error });
-              this.setState({ isSubmitting: false });
-            } else {
-              location.href = '/app';
-            }
+        .then((response) => {
+          if (response.error) {
+            this.setFlash({ type: 'danger', message: response.error });
+            this.setState({ isSubmitting: false });
+          } else {
+            location.href = '/app';
           }
-        );
+        });
   }
 
   deviseLinks() {
