@@ -1,0 +1,58 @@
+# Prospero
+#
+# You should have received a copy of the license along with this program.
+#
+# Licensed under
+# - GNU Affero General Public License V3
+# - CeCILL Affero compliant
+
+# French application messages
+#
+# See https://guides.rubyonrails.org/i18n.html.
+
+fr:
+  # Devise messages translations
+  #
+  # See https://github.com/plataformatec/devise/wiki/I18n
+  devise:
+    failure:
+      # Authentication failure
+      invalid: E-mail ou mot de passe incorrecte
+    mailer:
+      # Message to confirm user's email address
+      confirmation_instructions:
+        subject: Confirmez votre adresse e-mail
+        body:
+          - Bonjour %{full_name},
+          - Cliquez sur le lien ci-dessous pour confirmer votre adresse e-mail
+           et commencer à utiliser Prospéro.
+        link_label: Confirmer mon adresse e-mail
+      # Message to reset user's password
+      reset_password_instructions:
+        subject: Réinitialisez votre mot de passe Prospéro
+        body:
+          - Bonjour %{full_name},
+          - Une personne a demandé à changer votre mot de passe. Si vous êtes
+           cette personne, cliquez sur le lien ci-dessous pour réinitialiser
+            votre mot de passe.
+        link_label: Réinitialiser mon mot de passe
+        disclaimer: Si vous n'avez pas fait cette demande, ignorez ce message.
+      # Notification when user's email address has been changed
+      email_changed:
+        subject: Votre e-mail a été modifié
+        body:
+          - Bonjour %{full_name},
+        confirmed_message: >
+          Nous vous écrivons pour vous signaler que l'adresse e-mail que vous
+           avez enregistrée dans Prospéro a été remplacée par %{email}.
+        unconfirmed_message: >
+          Nous vous écrivons pour vous signaler que l'adresse e-mail que vous
+           avez enregistrée dans Prospéro est en train d'être remplacée par
+            %{unconfirmed_email}.
+      # Notification when user's password has been changed
+      password_change:
+        subject: Votre mot de passe a été modifié dans Prospéro
+        body:
+          - Bonjour %{full_name},
+          - Nous vous écrivons pour vous signaler que votre mot de passe a été
+           modifié dans Prospéro.
