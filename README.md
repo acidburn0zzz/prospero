@@ -17,6 +17,13 @@ See our development documentation:
 * [Development workflow](docs/development_workflow.md)
 * [Running Prospéro in the development environment](docs/running_prospero_in_the_development_environment.md)
 
+### Codebase contributors
+
+* **Aymeric Luneau** - French translator
+* **Bastien Fond** - German translator
+* **Felipe Batista** - Lead developer
+* **Nádia Rocha Gonfiantini** - Brazilian Portuguese translator
+
 ## Version control
 
 See our [version control documentation](docs/versioning_control.md).
