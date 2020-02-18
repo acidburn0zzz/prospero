@@ -26,20 +26,18 @@ module Api
       # GET /api/v1/users
       #
       # Reponse: the list of users
-      #   [
-      #     {
-      #       "user": {
+      #   {
+      #     "users": [
+      #       {
       #         "id": "b74ec2d0-ec55-4c6a-91bd-c4c669aa34f5",
       #         "full_name": "Ulrike Meinhof"
-      #       }
-      #     },
-      #     {
-      #       "user": {
+      #       },
+      #       {
       #         "id": "68d35a64-6e49-4b78-8e8d-dbb0a60bb9d4",
       #         "full_name": "Baden Powell"
       #       }
-      #     }
-      #   ]
+      #     ]
+      #   }
       def index
         authorize! :list, User
         @resources = User.all
@@ -54,7 +52,7 @@ module Api
       #   user[full_name] - New user's full name
       #   user[password]  - New user's password
       #
-      # Response: the new user
+      # Response: the newly created user
       #   {
       #     "user": {
       #       "id": "b74ec2d0-ec55-4c6a-91bd-c4c669aa34f5",
@@ -63,8 +61,9 @@ module Api
       #     }
       #   }
       def create
-        @resource = User.create!(user_params)
+        @resource = User.new(user_params)
         authorize! :create, @resource
+        @resource.save!
         render :show
       end
 

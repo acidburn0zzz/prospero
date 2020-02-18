@@ -8,14 +8,18 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'bootstrap', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <nav class="navbar navbar-expand navbar-dark fixed-top bg-dark">
-      <a class="navbar-brand" href="/<%= I18n.locale %>">
-        Prospéro
-      </a>
-    </nav>
+    <%=
+      react_component(
+        "Navbar",
+        locale: I18n.locale,
+        currentUserId: current_user && current_user.id
+      )
+    %>
+
     <main role="main">
       <%= yield %>
     </main>

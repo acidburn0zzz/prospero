@@ -14,6 +14,7 @@
 
 import React, { Suspense, lazy } from 'react';
 import Flash                     from './common/Flash';
+import Placeholder               from './common/Placeholder';
 
 const App               = lazy(() => import('./app/Index'));
 const SignIn            = lazy(() => import('./devise/SignIn'));
@@ -26,12 +27,6 @@ const Route             = lazy(() => import('react-router-dom').then(module => (
 const Switch            = lazy(() => import('react-router-dom').then(module => ({ default: module.Switch })));
 const Router            = lazy(() => import('react-router-dom').then(module => ({ default: module.BrowserRouter })));
 const Redirect          = lazy(() => import('react-router-dom').then(module => ({ default: module.Redirect })));
-
-const language = document.getElementsByTagName('html')[0].attributes.lang.value;
-
-function Placeholder() {
-  return <div></div>;
-}
 
 class Index extends React.Component {
   constructor(props) {
@@ -46,8 +41,9 @@ class Index extends React.Component {
             // init i18next
             // for all options read: https://www.i18next.com/overview/configuration-options
             .init({
-              lng: language,
-              fallbackLng: 'en'
+              load: 'currentOnly',
+              fallbackLng: 'en',
+              lng: this.props.locale
             },
             () => this.setState({ isLoaded: true }));
         }

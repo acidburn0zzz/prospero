@@ -1,0 +1,92 @@
+# Prospero
+#
+# You should have received a copy of the license along with this program.
+#
+# Licensed under
+# - GNU Affero General Public License V3
+# - CeCILL Affero compliant
+
+# German application messages
+#
+# See https://guides.rubyonrails.org/i18n.html.
+
+de:
+  # Devise messages translations
+  #
+  # See https://github.com/plataformatec/devise/wiki/I18n
+  devise:
+    failure:
+      # Authentication failure
+      invalid: E-Mail oder Passwort ungültig
+    mailer:
+      # Message to confirm user's email address
+      confirmation_instructions:
+        subject: Bestätigen Sie Ihre E-Mail Adresse
+        body:
+          - Hallo %{full_name},
+          - Um das Benutzen von Prospéro zu starten, klicken Sie den Link
+            unterhalb zur der Bestätigung Ihrer E-Mail Adresse.
+        link_label: Bestätigung meiner E-Mail Adresse
+      # Message to reset user's password
+      reset_password_instructions:
+        subject: Setzen Sie ihr Passwort zurück
+        body:
+          - Hallo %{full_name},
+          - Jemand (hoffentlich Sie) hat einen Link angefragt, um Ihr Passwort
+            zu ändern. Klicken Sie den Link unterhalb, um Ihr Passwort
+            zurückzusetzen.
+        link_label: Setzte mein Passwort zurück
+        disclaimer: >
+          Wenn Sie das nicht angefragt haben, ignorieren Sie bitte diese E-Mail.
+      # Notification when user's email address has been changed
+      email_changed:
+        subject: Ihre Prospéro E-Mail wurde geändert
+        body:
+          - Hallo %{full_name},
+        confirmed_message: >
+          Wir kontaktieren Sie, um Ihnen mitzuteilen, dass Ihre Prospéro E-Mail
+          zu folgender geändert wurde %{email}.
+        unconfirmed_message: >
+          Wir kontaktieren Sie, um Ihnen mitzuteilen, dass Ihre Prospéro E-Mail
+          gerade zu folgender geändert wird %{unconfirmed_email}.
+      # Notification when user's password has been changed
+      password_change:
+        subject: Ihr Prospéro Passwort wurde geändert
+        body:
+          - Hallo %{full_name},
+          - Wir kontaktieren Sie, um Ihnen mitzuteilen, dass Ihr Prospéro
+            Passwort geändert wurde.
+  # Error messages translations
+  errors:
+    messages:
+      # Trying to confirm an email address that has already been confirmed
+      already_confirmed: >
+        wurde bereits bestätigt, bitte versuchen Sie sich anzumelden
+      # Trying to confirm an email address but the confirmation token expired
+      confirmation_period_expired: >
+        muss innerhalb %{period} bestätigt werden, bitte fragen Sie neu an
+      # Trying to reset the password but the token expired
+      expired: ist abgelaufen, bitte fragen Sie neu an
+      # HTTP status 401 message https://en.wikipedia.org/wiki/List_of_HTTP_status_codes#401
+      forbidden: >
+        Sie sind nicht autorisiert, auf diese Ressource zuzugreifen oder diese
+        Aktion auszuführen
+      # Invalid CSRF authenticity token https://en.wikipedia.org/wiki/Cross-site_request_forgery
+      invalid_authenticity_token: >
+        Die Echtheit des CSRF-Tokens kann nicht bestätigt werden
+      # HTTP status 404 message https://en.wikipedia.org/wiki/List_of_HTTP_status_codes#404
+      not_found: Nicht gefunden
+      # Missing required parameter
+      param_missing: "Parameter fehlt oder der Wert ist leer: %{param}"
+      # Password missmatch trying to delete account
+      password_missmatch: Passwort ungültig
+      # HTTP status 500 message https://en.wikipedia.org/wiki/List_of_HTTP_status_codes#500
+      server_error: Interner Serverfehler
+  pages:
+    # Home page translations
+    home:
+      got_to_app: Öffnen Sie die App
+      sign_in: Melden Sie sich an
+      sign_up: Registrieren Sie sich
+      source_code: Quelltext
+      welcome: Willkommen in Prospéro
