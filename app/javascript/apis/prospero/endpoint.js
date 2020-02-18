@@ -10,20 +10,21 @@
 
 const basePath = '/api/v1';
 
-const csrfParamTag = document.head.getElementsByTagName('meta')['csrf-param'];
-const csrfTokenTag = document.head.getElementsByTagName('meta')['csrf-token'];
-
 class Endpoint {
   constructor(method, path) {
     this.method = method;
     this.path = basePath + path;
+    this.csrfParamTag =
+      document.head.getElementsByTagName('meta')['csrf-param'].content;
+    this.csrfTokenTag =
+      document.head.getElementsByTagName('meta')['csrf-token'].content;
   }
 
   call(formData) {
     if (!formData && this.method !== 'GET') {
       formData = new FormData();
     }
-    formData && formData.append(csrfParamTag.content, csrfTokenTag.content);
+    formData && formData.append(this.csrfParamTag, this.csrfTokenTag);
     return fetch(this.path, {
       method: this.method,
       body: formData,

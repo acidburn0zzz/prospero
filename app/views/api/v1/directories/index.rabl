@@ -8,11 +8,12 @@
 # - GNU Affero General Public License V3
 # - CeCILL Affero compliant
 
-# User index JSON template
+# Directory index JSON template
 #
 # See https://github.com/nesquena/rabl#usage
 
-collection @resources, root: 'users', object_root: false
+collection @resources, root: 'directories', object_root: false
 
 attribute :id
-attribute :full_name
+attribute :name
+attribute :parent_id

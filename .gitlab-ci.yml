@@ -13,12 +13,12 @@
 image: ruby:2.6.5-alpine
 
 stages:
-  - checkstyle
+  - precheck
   - test
   - deploy
 
 checkstyle:
-  stage: checkstyle
+  stage: precheck
   before_script:
     # Install system requirements
     - apk add g++ make
@@ -26,6 +26,16 @@ checkstyle:
     - gem install rubocop -v '~> 0.77.0'
   script:
     - rubocop
+
+validate-translations:
+  image: mikefarah/yq
+  stage: precheck
+  script: |
+    for file in config/locales/*.yml; do
+      echo "Validating $file"
+      yq validate $file
+      echo "$file ok!"
+    done
 
 test:
   stage: test
@@ -140,7 +150,7 @@ publish-docker-image:
   stage: deploy
   before_script:
     - apk add bash curl jq
-    - version_name=$(tools/ci_cd/print-version-name.sh $CI_COMMIT_TAG)
+    - version_name=$(tools/ci_cd/scripts/print-version-name.sh $CI_COMMIT_TAG)
   script: >
     tools/ci_cd/scripts/create-pipeline.sh \
       --gitlab-url $GITLAB_URL \

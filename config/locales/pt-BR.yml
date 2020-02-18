@@ -1,0 +1,59 @@
+# Prospero
+#
+# You should have received a copy of the license along with this program.
+#
+# Licensed under
+# - GNU Affero General Public License V3
+# - CeCILL Affero compliant
+
+# Brazilian portuguese application messages
+#
+# See https://guides.rubyonrails.org/i18n.html.
+
+pt-BR:
+  # Devise messages translations
+  #
+  # See https://github.com/plataformatec/devise/wiki/I18n
+  devise:
+    failure:
+      # Authentication failure
+      invalid: E-mail ou senha inválidos
+    mailer:
+      # Message to confirm user's email address
+      confirmation_instructions:
+        subject: Confirme o seu e-mail
+        body:
+          - Oi, %{full_name},
+          - Para começar a usar Prospéro, clique no link abaixo, para confirmar
+            o seu e-mail.
+        link_label: Confirmar meu e-mail
+      # Message to reset user's password
+      reset_password_instructions:
+        subject: Redifina a sua senha do Prospéro
+        body:
+          - Oi, %{full_name},
+          - Alguém (esperamos que seja você!) pediu para receber um link para
+            redefinição da senha do Prospéro. Clique no link abaixo para
+            fazê-lo.
+        link_label: Redefinir minha senha
+        disclaimer: >
+          Se você não pediu para redefinir a sua senha, por favor, desconsidere
+          este e-mail.
+      # Notification when user's email address has been changed
+      email_changed:
+        subject: Seu e-mail de acesso ao Prospéro mudou
+        body:
+          - Oi, %{full_name},
+        confirmed_message: >
+          Estamos escrevendo para avisar que o seu e-mail para acessar o
+          Prospéro mudou para %{email}.
+        unconfirmed_message: >
+          Estamos escrevendo para avisar que o seu e-mail para acessar o
+          Prospéro está sendo mudado para %{unconfirmed_email}.
+      # Notification when user's password has been changed
+      password_change:
+       subject: A sua senha do Prospéro mudou
+       body:
+         - Oi, %{full_name},
+         - Estamos escrevendo para avisar que a sua senha de acesso ao Prospéro
+           mudou.

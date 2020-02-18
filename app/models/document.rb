@@ -8,11 +8,10 @@
 # - GNU Affero General Public License V3
 # - CeCILL Affero compliant
 
-# User index JSON template
+# A document in Prospero library
 #
-# See https://github.com/nesquena/rabl#usage
-
-collection @resources, root: 'users', object_root: false
-
-attribute :id
-attribute :full_name
+# See also LibraryFile
+class Document < LibraryFile
+  validates_presence_of :body,
+                        :parent
+end

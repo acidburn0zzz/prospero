@@ -29,8 +29,6 @@ git config --global user.name "Lobster"
 git config --global user.email lobster@riseup.net
 ```
 
-## Recommended configuration
-
 #### Set automatic pull rebase
 
 In order to avoid useless [merge](https://git-scm.com/docs/git-merge) commits everytime you [pull](https://www.git-scm.com/docs/git-pull) changes from the remote repository, set automatic [rebase](https://git-scm.com/book/en/v2/Git-Branching-Rebasing) option.
@@ -38,6 +36,12 @@ In order to avoid useless [merge](https://git-scm.com/docs/git-merge) commits ev
 ```sh
 git config --global pull.rebase true
 ```
+
+## Commit messages
+
+Commit messages are very important, please take the time to read [this article](https://chris.beams.io/posts/git-commit/) about how to write good Git commit messages.
+
+## Recommended configuration (advanced)
 
 #### Set Vim as [core editor](https://www.git-scm.com/book/en/v2/Customizing-Git-Git-Configuration#_code_core_editor_code)
 
@@ -92,7 +96,3 @@ git log
 ```
 
 ...and chose the one you prefer keep using.
-
-## Commit messages
-
-Commit messages are very important, please take the time to read [this article](https://chris.beams.io/posts/git-commit/) about how to write good Git commit messages.

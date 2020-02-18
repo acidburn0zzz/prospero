@@ -22,7 +22,7 @@ describe 'Users tests' do
 
     it { expect(response).to have_http_status(:ok) }
     it 'is expected to response with all users in the database' do
-      expect(json(response.body).map { |item| item['user']['id'] }).to(
+      expect(json(response.body)['users'].map { |user| user['id'] }).to(
         contain_exactly(user1.id, user2.id, user3.id)
       )
     end

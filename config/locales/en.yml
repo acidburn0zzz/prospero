@@ -17,20 +17,15 @@ en:
   activerecord:
     attributes:
       user:
-        confirmation_token: Confirmation token
         email: E-mail
         full_name: Full name
-        password: Password
-        password_confirmation: Confirm password
-        you: you
-    models:
-      user:
-        one: User
-        other: Users
   app:
     menu_bar:
-      users: Community
+      community: Community
+      library: Library
       logout: Logout
+    community:
+      current_user: you
   # Devise messages translations
   #
   # See https://github.com/plataformatec/devise/wiki/I18n
