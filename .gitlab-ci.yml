@@ -23,7 +23,7 @@ checkstyle:
     # Install system requirements
     - apk add g++ make
     # Install Rubocop
-    - gem install rubocop --version '~> 0.77.0'
+    - gem install rubocop --version '~> 0.80.0'
   script:
     - rubocop
 

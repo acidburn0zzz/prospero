@@ -12,7 +12,7 @@
 echo "Installing dependencies..."
 source ~/.rvm/scripts/rvm
 cd /srv/prospero
-gem install rubocop --version '~> 0.77.0'
+gem install rubocop --version '~> 0.80.0'
 gem install foreman
 gem install bundler --version '~> 2.0'
 bundle install
