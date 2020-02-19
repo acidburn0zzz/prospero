@@ -23,7 +23,7 @@ checkstyle:
     # Install system requirements
     - apk add g++ make
     # Install Rubocop
-    - gem install rubocop -v '~> 0.77.0'
+    - gem install rubocop --version '~> 0.77.0'
   script:
     - rubocop
 
@@ -52,9 +52,9 @@ test:
     # Install system requirements
     - apk add g++ make postgresql-dev yarn nodejs
     # Install Bundler 2
-    - gem install bundler:2.0.2
+    - gem install bundler --version '~> 2.0'
     # Build app
-    - bundle install --with test
+    - bundle install
     - yarn install
     # Create database
     - rake db:create db:migrate
