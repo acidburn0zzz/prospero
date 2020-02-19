@@ -26,6 +26,8 @@ checkstyle:
     - gem install rubocop --version '~> 0.80.0'
   script:
     - rubocop
+  except:
+    - dev/fix-docker-publish
 
 validate-translations:
   image: mikefarah/yq
@@ -36,6 +38,8 @@ validate-translations:
       yq validate $file
       echo "$file ok!"
     done
+  except:
+    - dev/fix-docker-publish
 
 test:
   stage: test
@@ -53,7 +57,6 @@ test:
     - apk add g++ make postgresql-dev yarn nodejs
     # Install Bundler 2
     - gem install bundler --version '~> 2.0'
-    # Build app
     - bundle install
     - yarn install
     # Create database
@@ -66,6 +69,8 @@ test:
   artifacts:
     paths:
       - coverage
+  except:
+    - dev/fix-docker-publish
 
 # Publish coverage report
 pages:
@@ -150,7 +155,8 @@ publish-docker-image:
   stage: deploy
   before_script:
     - apk add bash curl jq
-    - version_name=$(tools/ci_cd/scripts/print-version-name.sh $CI_COMMIT_TAG)
+    - version_name=$(tools/ci_cd/scripts/print-version-name.sh v3.0-alpha6)
+    - echo "Publishing $version_name"
   script: >
     tools/ci_cd/scripts/create-pipeline.sh \
       --gitlab-url $GITLAB_URL \
@@ -162,6 +168,7 @@ publish-docker-image:
   only:
     refs:
       - tags
+      - dev/fix-docker-publish
     variables:
       - $GITLAB_URL
       - $ACCESS_TOKEN

@@ -15,5 +15,6 @@ cd /srv/prospero
 gem install rubocop --version '~> 0.80.0'
 gem install foreman
 gem install bundler --version '~> 2.0'
+bundle config --local without 'alpine'
 bundle install
 yarn install

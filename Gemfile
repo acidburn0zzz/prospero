@@ -60,7 +60,10 @@ group :test do
   gem 'shoulda-context',          '~> 1.0'
   gem 'shoulda-matchers',         '~> 4.0'
   gem 'simplecov',                      require: false
-  gem 'tzinfo-data',              '~> 1.0' # Required in alpine Linux
   # Easy installation and use of web drivers to run system tests with browsers
   gem 'webdrivers'
+end
+
+group :alpine do
+  gem 'tzinfo-data',              '~> 1.0' # Required in alpine Linux
 end
