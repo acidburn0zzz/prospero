@@ -53,4 +53,4 @@ end
 
 # Requires supporting ruby files with custom matchers and macros, etc,
 # in spec/support/ and its subdirectories.
-Dir["#{__dir__}/support/**/*.rb"].each { |file| require file }
+Dir["#{__dir__}/support/**/*.rb"].sort.each { |file| require file }
