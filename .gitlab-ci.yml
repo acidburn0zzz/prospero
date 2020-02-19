@@ -57,7 +57,6 @@ test:
     - apk add g++ make postgresql-dev yarn nodejs
     # Install Bundler 2
     - gem install bundler --version '~> 2.0'
-    # Build app
     - bundle install
     - yarn install
     # Create database
