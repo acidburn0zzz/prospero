@@ -27,7 +27,7 @@ gem 'react-rails',                '~> 2.0'
 # Use SCSS for stylesheets
 gem 'sass-rails',                 '~> 6.0'
 # Async jobs processing
-gem 'sidekiq',                    '~> 6.0'
+gem 'sidekiq',                    '~> 6.2'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks',                 '~> 5.0'
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
