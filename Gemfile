@@ -19,7 +19,7 @@ gem 'oj',                         '~> 3.0'
 # Use PostgreSQL as the database for Active Record
 gem 'pg',                         '~> 1.0'
 # Use Puma as the app server
-gem 'puma',                       '~> 4.1'
+gem 'puma',                       '~> 5.6'
 # JSON views templating
 gem 'rabl',                       '~> 0.14.0'
 # React.js integration. See https://reactjs.org/
