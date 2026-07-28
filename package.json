@@ -7,7 +7,7 @@
     "bootstrap": "^4.4.1",
     "i18next": "^19.0.3",
     "i18next-xhr-backend": "^3.2.2",
-    "jquery": "^3.4.1",
+    "jquery": "^4.0.0",
     "popper.js": "^1.16.1",
     "prop-types": "^15.7.2",
     "query-string": "^6.10.1",
@@ -19,6 +19,6 @@
     "turbolinks": "^5.2.0"
   },
   "devDependencies": {
-    "webpack-dev-server": "^3.9.0"
+    "webpack-dev-server": "^5.2.6"
   }
 }
